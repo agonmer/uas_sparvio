@@ -1,0 +1,6 @@
+Matteo, Niccolò, 11 May 2022
+On the roof of U9
+
+We want to compare the outputs of the Trisonica anemometer with the obs of the weather station.
+By default the weather station saves data with a frequency of 5 minutes (averages every 5 minutes). There is an offset of an hour and some minutes between the local time (e.g. 15:00) and the laptop time (13:57).
+The difference in time steps does not allow for a proper validation.

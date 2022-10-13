@@ -1,0 +1,2 @@
+	Temp	Hi	Low	Out	Dew	Wind	Wind	Wind	Hi	Hi	Wind	Heat	THW	THSW	
+Time	Out	Temp	Temp	Hum	Pt.	Speed	Dir	Run	Speed	Dir	Chill	Index	Index	Index	Bar  
