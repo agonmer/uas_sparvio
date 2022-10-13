@@ -1,0 +1,18 @@
+scope sym=1000-1099
+
+SYM1000 liquidTemp: LIQUID_TEMPERATURE, Liquid temperature, celcius, Temperature of the measured liquid
+
+SYM1001 pH: LIQUID_PH, Liquid pH, pH, pH
+
+# Millisiemens per cm. SI unit is Siemens per meter
+SYM1002 ec_mS: LIQUID_ELECTRIC_CONDUCTIVITY, Liquid electric conductivity, milliSiemensPerCm, Electrical conductivity of liquid
+
+SYM1003 liquidDO: LIQUID_DISSOLVED_OXYGEN, Liquid dissolved oxygen, milligramPerLiter, Dissolved oxygen in water
+
+#SYMx liquidDoPercent: LIQUID_DISSOLVED_OXYGEN_PERCENT, Liquid dissolved oxygen in percent of saturation, percent,
+
+#liquidPpm: LIQUID_PPM, Liquid total dissolved solids
+#liquidSalinity
+#liquidSG: LIQUID_SPECIFIC_SALINITY, Specific salinity of salt water, ,
+
+SYM1004 waDepthDiff: WATER_DEPTH_DIFFERENTIAL, Water depth difference, meter,

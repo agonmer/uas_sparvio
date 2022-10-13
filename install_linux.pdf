@@ -1,0 +1,591 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R /F3 4 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
+endobj
+5 0 obj
+<<
+/Contents 19 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 18 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 /Trans <<
+
+>> 
+  /Type /Page
+>>
+endobj
+6 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://packages.grafana.com/oss/deb)
+>> /Border [ 0 0 0 ] /Rect [ 130.1629 564.8749 336.1314 576.8749 ] /Subtype /Link /Type /Annot
+>>
+endobj
+7 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://packagecloud.io/gpg.key)
+>> /Border [ 0 0 0 ] /Rect [ 249.9829 552.8749 390.0629 564.8749 ] /Subtype /Link /Type /Annot
+>>
+endobj
+8 0 obj
+<<
+/Annots [ 6 0 R 7 0 R ] /Contents 20 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 18 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+9 0 obj
+<<
+/Outlines 11 0 R /PageLabels 21 0 R /PageMode /UseNone /Pages 18 0 R /Type /Catalog
+>>
+endobj
+10 0 obj
+<<
+/Author () /CreationDate (D:20210827115726+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20210827115726+00'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+  /Subject (\(unspecified\)) /Title () /Trapped /False
+>>
+endobj
+11 0 obj
+<<
+/Count 7 /First 12 0 R /Last 14 0 R /Type /Outlines
+>>
+endobj
+12 0 obj
+<<
+/Dest [ 5 0 R /XYZ 62.69291 753.0236 0 ] /Next 13 0 R /Parent 11 0 R /Title (Sparvio Toolbox Linux installation)
+>>
+endobj
+13 0 obj
+<<
+/Dest [ 5 0 R /XYZ 62.69291 301.6236 0 ] /Next 14 0 R /Parent 11 0 R /Prev 12 0 R /Title (If using Anaconda)
+>>
+endobj
+14 0 obj
+<<
+/Count 3 /Dest [ 8 0 R /XYZ 62.69291 753.0236 0 ] /First 15 0 R /Last 17 0 R /Parent 11 0 R /Prev 13 0 R 
+  /Title (Graphing)
+>>
+endobj
+15 0 obj
+<<
+/Dest [ 8 0 R /XYZ 62.69291 720.0236 0 ] /Next 16 0 R /Parent 14 0 R /Title (Installing InfluxDB)
+>>
+endobj
+16 0 obj
+<<
+/Dest [ 8 0 R /XYZ 62.69291 606.8749 0 ] /Next 17 0 R /Parent 14 0 R /Prev 15 0 R /Title (Installing Grafana)
+>>
+endobj
+17 0 obj
+<<
+/Dest [ 8 0 R /XYZ 62.69291 504.8749 0 ] /Parent 14 0 R /Prev 16 0 R /Title (Running)
+>>
+endobj
+18 0 obj
+<<
+/Count 2 /Kids [ 5 0 R 8 0 R ] /Type /Pages
+>>
+endobj
+19 0 obj
+<<
+/Length 4443
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 732.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Sparvio Toolbox Linux installation) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 714.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Install Python 3.7 or later) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 696.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Install venv:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 662.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (pip install virtualenv) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 642.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Create venv for Sparvio \(in the current directory\):) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 597.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 36 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F3 10 Tf 12 TL (virtualenv ssp) Tj T* (source ssp/bin/activate) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 577.6236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Unpack the sparvio_toolbox .zip file and enter the directory.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 544.4236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (sudo apt-get install -y python-setuptools) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 524.4236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The user needs to be part of group dialout:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 491.2236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F3 10 Tf 0 0 0 rg (sudo adduser ) Tj (<) Tj (user) Tj (>) Tj ( dialout) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 471.2236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (It can be a good idea to remove modemmanager to avoid collision in the use of the serial port:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 438.0236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (sudo apt remove modemmanager) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 418.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Install dependencies:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 384.8236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (python setup.py install) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 364.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Run the Sparvio Toolbox scripts.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 346.8236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Deactivate the Sparvio environment \(optional\):) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 313.6236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F3 10 Tf 12 TL (deactivate) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 280.6236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (If using Anaconda) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 262.6236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Anaconda prefers to use the ) Tj /F3 10 Tf (conda) Tj /F1 10 Tf ( package manager instead of ) Tj /F3 10 Tf (pip) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 205.4236 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 48 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F3 10 Tf 12 TL (conda env create -f environment.yml) Tj T*  T* (conda install -c conda-forge aiohttp-jinja2) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 185.4236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (To run:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 169.4236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL (::) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 154.4236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (conda activate ssp ... conda deactivate) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 56.69291 773.1969 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 110.3349 0 Td (Sparvio Toolbox version 1.4.2 -- \(c\) Sparv Embedded 2021) Tj T* -110.3349 0 Td ET
+Q
+Q
+ 
+endstream
+endobj
+20 0 obj
+<<
+/Length 2772
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 732.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Graphing) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 702.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Installing InfluxDB) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 684.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (The InfluxDB installation can differ depending on Linux distribution.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 618.8749 cm
+q
+q
+.58795 0 0 .58795 0 0 cm
+q
+1 0 0 1 6.6 11.22544 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 798 96 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 74 Tm /F3 10 Tf 12 TL (curl -sL https://repos.influxdata.com/influxdb.key | sudo apt-key add -) Tj T* (source /etc/lsb-release) Tj T* (echo "deb https://repos.influxdata.com/${DISTRIB_ID,,} ${DISTRIB_CODENAME} stable" | sudo tee /etc/apt/sources.list.d/influxdb.list) Tj T*  T* (sudo apt-get install influxdb) Tj T*  T* (sudo service influxdb start) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 588.8749 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Installing Grafana) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 576.8749 cm
+Q
+q
+1 0 0 1 62.69291 516.8749 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 36 cm
+q
+BT 1 0 0 1 0 14 Tm 18.49425 Tw 12 TL /F1 10 Tf 0 0 0 rg (echo "deb ) Tj 0 0 .501961 rg (https://packages.grafana.com/oss/deb) Tj 0 0 0 rg ( stable main" | sudo tee) Tj T* 0 Tw (/etc/apt/sources.list.d/grafana.list curl ) Tj 0 0 .501961 rg (https://packagecloud.io/gpg.key) Tj 0 0 0 rg ( | sudo apt-key add -) Tj T* ET
+Q
+Q
+q
+1 0 0 1 20 18 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (sudo apt-get install grafana) Tj T* ET
+Q
+Q
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (sudo service grafana-server start) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 516.8749 cm
+Q
+q
+1 0 0 1 62.69291 486.8749 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Running) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 468.8749 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F2 10 Tf 12 TL (::) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 453.8749 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+BT 1 0 0 1 0 2 Tm  T* ET
+q
+1 0 0 1 20 0 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (sudo service influxdb start sudo service grafana-server start) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 423.8749 cm
+q
+BT 1 0 0 1 0 14 Tm 3.842196 Tw 12 TL /F1 10 Tf 0 0 0 rg (When running ) Tj /F3 10 Tf (interactive.py) Tj /F1 10 Tf ( or ) Tj /F3 10 Tf (telemetry.py) Tj /F1 10 Tf (, go to ) Tj /F3 10 Tf (http://localhost:3030/) Tj /F1 10 Tf ( See the) Tj T* 0 Tw (Grafana setup guide in the Sparvio Toolbox manual.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56.69291 773.1969 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 110.3349 0 Td (Sparvio Toolbox version 1.4.2 -- \(c\) Sparv Embedded 2021) Tj T* -110.3349 0 Td ET
+Q
+Q
+ 
+endstream
+endobj
+21 0 obj
+<<
+/Nums [ 0 22 0 R 1 23 0 R ]
+>>
+endobj
+22 0 obj
+<<
+/S /D /St 1
+>>
+endobj
+23 0 obj
+<<
+/S /D /St 2
+>>
+endobj
+xref
+0 24
+0000000000 65535 f 
+0000000073 00000 n 
+0000000124 00000 n 
+0000000231 00000 n 
+0000000343 00000 n 
+0000000448 00000 n 
+0000000653 00000 n 
+0000000841 00000 n 
+0000001024 00000 n 
+0000001253 00000 n 
+0000001358 00000 n 
+0000001616 00000 n 
+0000001690 00000 n 
+0000001825 00000 n 
+0000001956 00000 n 
+0000002104 00000 n 
+0000002224 00000 n 
+0000002356 00000 n 
+0000002464 00000 n 
+0000002530 00000 n 
+0000007025 00000 n 
+0000009849 00000 n 
+0000009899 00000 n 
+0000009933 00000 n 
+trailer
+<<
+/ID 
+[<4dc2a9860b8c15c1e0669604857c78c7><4dc2a9860b8c15c1e0669604857c78c7>]
+% ReportLab generated PDF document -- digest (http://www.reportlab.com)
+
+/Info 10 0 R
+/Root 9 0 R
+/Size 24
+>>
+startxref
+9967
+%%EOF

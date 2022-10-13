@@ -1,0 +1,52 @@
+# air_sensors.txt: Measurements done in air, except more specific collections
+
+scope sym=800-819
+
+SYM800 co2: CO2, Carbon dioxide, ppm, Carbon dioxide concentration
+
+SYM801 light: LIGHT, Light level, lux, Ambient light level
+SYM802 lightMax: LIGHT_MAX, Max light level, lux, Highest recorded light level under an application-specific period
+
+SYM803 wspd: WIND_SPEED, Wind speed, meterPerSec, Wind speed relative to ground
+SYM804 wdir: WIND_DIRECTION, Wind direction, angleDeg, Where the wind is coming from in true degrees relative relative ground
+SYM805 windVec: WIND_VECTOR, Wind vector, meterPerSec, 2 or 3 dimensional wind vector where the wind is coming from
+SYM806 windU: WIND_U, Wind U component, meterPerSec, Zonal velocity i.e. the component of the horizontal wind towards east relative ground
+SYM807 windV: WIND_V, Wind V component, meterPerSec, Meridional velocity i.e. the component of the horizontal wind towards north relative ground
+SYM808 windW: WIND_W, Wind W component, meterPerSec, Vertical upward velocity relative ground
+
+SYM809 co2Flt: CO2_FILTERED, Filtered CO2 concentration, ppm,
+SYM810 co2Unflt: CO2_UNFILTERED, Unfiltered CO2 concentration, ppm,
+
+SYM811 airFlow: AIR_FLOW, Air flow, literPerMinute, Speed of air flow relative to the sensor
+
+SYM812 co2UnfltPrUncomp: CO2_UNFILTERED_PRESSURE_UNCOMPENSATED, CO2 concentration without time-filtering or pressure compensation, ppm,
+
+SYM813 rhUnfltPrUncomp: RH_UNFILTERED_PRESSURE_UNCOMPENSATED, Relative humidity without time-filtering or pressure compensation, ppm,
+
+SYM814 rhUnflt: RH_UNFILTERED, Relative humidity without time-filtering, ppm,
+
+SYM815 absHumUnfltPrUncomp: ABSOLUTE_HUMIDITY_UNFILTERED_PRESSURE_UNCOMPENSATED, Absolute humidity without time-filtering or pressure compensation,
+
+SYM816 absHumUnflt: ABSOLUTE_HUMIDITY_UNFILTERED, Absolute humidity without time-filtering,
+
+scope sym=820-839
+
+SYM820 pm1: PARTICLE_CONC_PM1, PM 1.0 concentration, microgramPerM3, Concentration of particles of size 1.0 micrometer
+SYM821 pm2_5: PARTICLE_CONC_PM2_5, PM 2.5 concentration, microgramPerM3, Concentration of particles of size 2.5 micrometer
+SYM822 pm10: PARTICLE_CONC_PM10, PM 10 concentration, microgramPerM3, Concentration of particles of size 10 micrometer
+
+SYM823 pmHist: PARTICLE_HISTOGRAM, Particle count histogram, , Array of number of sampled particles for each particle size bin measured during the last sampling period
+
+scope sym=840-879
+
+SYM840 o3ppm: O3_PPM, Ozone concentration, ppm, Concentration of ozone (O3) in air
+SYM841 o3mgm3: O3_MG_PER_M3, Ozone concentration in mg/m3, milligramPerM3, Concentration of ozone (O3)
+
+SYM842 ch4: CH4_PPM, Methane concentration, ppm, Concentration of methane (CH4) in air
+SYM843 ch4ratio: CH4_RATIO, CH4 ratio, , Sensor resistance factor relative the resistance at zero CH4
+
+SYM844 c2h6: C2H6_PPM, Ethane concentration, ppb, Concentration of ethane (C2H6) in air
+
+SYM845 co: CO_PPM, Carbon monoxide concentration, ppm, Concentration of carbon monoxide (CO) in air
+
+SYM846 n2o: N2O_PPM, Nitrous oxide concentration, ppm, Concentration of nitrous oxide (N2O) in air

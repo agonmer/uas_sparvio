@@ -1,0 +1,57 @@
+scope sym=700-739
+
+########  Basic  ########
+
+SYM700 temp: AMBIENT_TEMPERATURE, Ambient temperature, celcius, Air temperature undisturbed by the system
+
+SYM701 rh: RELATIVE_HUMIDITY, Relative humidity, percent, Percent relative humidity (over water?) in ambient air
+
+########  Thermistor details  ########
+
+SYM702 thermBeta: THERMISTOR_BETA_K, , kelvin, Thermistor temperature calculation using Beta formula
+SYM703 thermBetaR0: THERMISTOR_BETA_R0, , ohm, Thermistor temperature calculation using Beta formula. Resistance at temperature thermBetaT0
+SYM704 thermBetaT0: THERMISTOR_BETA_T0_K, , kelvin, Thermistor temperature calculation using Beta formula. Temperature for calibration
+
+SYM705 thermHartA: THERMISTOR_STEINHART_A, , , Steinhart and Hart NTC thermistor equation 'A' parameter
+SYM706 thermHartB: THERMISTOR_STEINHART_B, , , Steinhart and Hart NTC thermistor equation 'B' parameter
+SYM707 thermHartC: THERMISTOR_STEINHART_C, , , Steinhart and Hart NTC thermistor equation 'C' parameter
+
+SYM708 thermR: THERMISTOR_RESISTANCE, Thermistor resistance, ohm, Thermistor resistance used to calculate temperature
+#SYMx thermCalibClear: THERMISTOR_CALIBRATION_CLEAR, , , Clear the calibration parameters so new can be set
+SYM709 thermCalibAddPt: THERMISTOR_CALIBRATION_ADD_PT, , ,
+SYM710 thermCalib: THERMISTOR_CALIBRATION, , , Map of raw data to translate thermistor resistance to temperature
+SYM711 thermR10s: THERMISTOR_RESISTANCE_10SEC, Thermistor resistance averaged over 10 seconds, ohm, Thermistor resistance used to calculate temperature
+
+SYM712 tempK: AMBIENT_TEMPERATURE_K, Ambient temperature (Kelvin), kelvin, Air temperature undisturbed by the system (Kelvin)
+
+SYM713 temp2: SECOND_TEMPERATURE, Second temperature, celcius, Temperature measurement at system-specific location
+
+SYM714 h4Start: H4_START, H4 start, ,
+
+SYM715 trigger: TRIGGER, Trigger measurement, ,
+
+SYM716 thermAdc: THERMISTOR_ADC, Thermistor raw ADC value, ,
+
+########  Humidity details  ########
+
+scope sym=740-769
+
+#Calibration for conversion from frequency to relative humidity.
+#TODO: Replace by sub-component that uses regular FREQ/COUNT?
+SYM740 rhFreq: HUMIDITY_FREQUENCY, Humidity frequency, herz, Frequency converted to humidity measurement. Inspect values used for the latest humidity calculation for readings based on capacitance-to-frequency conversion.
+SYM741 rhCount: HUMIDITY_PULSE_COUNT, Humidity pulse count, , Counting pulses converting to humidity measurement. Inspect values used for the latest humidity calculation for readings based on capacitance-to-frequency conversion.
+
+#TODO: Replace by generic multi-point calibration
+SYM742 rhCalib1Freq: HUMIDITY_CALIBRATION1_FREQUENCY, , herz,
+SYM743 rhCalib1RH: HUMIDITY_CALIBRATION1_RH, , percent,
+SYM744 rhCalib2Freq: HUMIDITY_CALIBRATION2_FREQUENCY, , herz,
+SYM745 rhCalib2RH: HUMIDITY_CALIBRATION2_RH, , percent,
+
+#These should be generic for any measurement, once SKS2 can use nested objects:
+SYM746 rhCalibClear: RH_CALIB_CLEAR, , ,
+SYM747 rhCalibAddPt: RH_CALIB_ADD_POINT, , ,
+SYM748 rhCalib: RH_CALIB, RH calibration, , Map of raw data for calibration of humidity readings
+
+SYM749 rhUncorr: RELATIVE_HUMIDITY_UNCORRECTED, Uncorrected relative humidity, percent, Humidity reading before temperature correction
+
+SYM750 rhCalibTemp: HUMIDITY_CALIBRATION_TEMPERATURE, Humidity calibration temperature, celcius, Temperature for which the humidity calibration is valid

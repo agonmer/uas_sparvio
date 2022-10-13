@@ -1,0 +1,11 @@
+
+scope sym=430-459
+
+SYM430 dfuMasterEnter: DFU_MASTER_ENTER, Enter DFU mode,
+SYM431 dfuExit: DFU_EXIT, Exit DFU mode,
+SYM432 dfuReadDevInfo: DFU_READ_DEV_INFO, DFU read device information,
+SYM433 dfuReadMem: DFU_READ_MEM, DFU read memory,
+SYM434 dfuWriteMem: DFU_WRITE_MEM, DFU write memory,
+SYM435 dfuEraseMem: DFU_ERASE_MEM, DFU erase memory,
+#SYMx dfuEraseUserMem #Not implemented yet
+SYM436 dfuMaster: DFU_MASTER, DFU Master, , If the device is in DFU master mode

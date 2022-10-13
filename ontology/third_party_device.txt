@@ -1,0 +1,23 @@
+# Generic integration of third-party digital devices
+
+scope sym=1400-1499
+
+SYM1400 extPwr: EXTERNAL_POWER, Enable external power, , Power external load on/off or with more modes
+
+SYM1401 rawTx: RAW_TRANSMIT, Raw transmit, , Send verbatim data to third-party device
+
+SYM1402 asciiTx: ASCII_TRANSMIT, Transmit ASCII, , Uses an underlaying mechanism to convey ASCII text to the recipient
+
+SYM1403 baud: BAUD_RATE, Baud rate, bitsPerSec, Speed of serial communication with some external device
+
+SYM1404 execute: EXECUTE, Execute custom command, , Execute a command that doesn't use the SSP protocol. The format depends on the device.
+
+SYM1405 devInfo: DEVICE_INFO, Device information, , Information about a connected third-party device. Format depends on the device type
+SYM1406 devFwVer: DEVICE_FW_VERSION, Device firmware version, , Firmware version of a connected third-party device
+SYM1407 devName: DEVICE_NAME, Device name, , Name of a connected third-party device
+
+SYM1408 injectRawData: INJECT_RAW_DATA, Inject raw data, , Simulates that the data comes from a connected third-party device
+
+SYM1409 devSerial: DEVICE_SERIAL_NUMBER, Device serial number, , Serial number of a connected third-party device
+
+SYM1410 devTime: DEVICE_TIME, Device time, , Time reported by the third-part device (in any format)

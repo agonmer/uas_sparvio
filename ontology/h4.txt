@@ -1,0 +1,74 @@
+# h4.txt: Product S2 H2
+# H4 is a temperature and humidity addon to the radiosonde Windsond S2
+
+scope sym=5140-5199
+
+SYM5140 h4Serial: H4_SERIAL, H4 serial number, ,
+SYM5141 h4HwVersion: H4_HW_VERSION, H4 hardware version, ,
+SYM5142 h4R9Resistance: H4_R9_RESISTANCE, H4 R9 resistance, ohm,
+SYM5143 h4Error: H4_ERROR, H4 error, ,
+SYM5144 h4CalibDate: H4_CALIBRATION_DATE, H4 calibration date, date,
+SYM5145 h4Capabilities: H4_CAPABILITIES, H4 enabled capabilities, ,
+
+SYM5146 h4T1: H4_T1, H4 thermistor 1 temperature, celsius,
+SYM5147 h4T1Adc: H4_T1_ADC, H4 thermistor 1 ADC value, adc,
+SYM5148 h4T1R: H4_T1_R, H4 thermistor 1 resistance, ohm,
+SYM5149 h4T1Calib: H4_T1_CALIBRATION, H4 thermistor 1 calibration, ,
+
+SYM5150 h4T2: H4_T2, H4 thermistor 2 temperature, celsius,
+SYM5151 h4T2Adc: H4_T2_ADC, H4 thermistor 2 ADC value, adc,
+SYM5152 h4T2R: H4_T2_R, H4 thermistor 2 resistance, ohm,
+SYM5153 h4T2Calib: H4_T2_CALIBRATION, H4 thermistor 2 calibration, ,
+
+SYM5154 h4HeaterTemp: H4_HEATER_TEMPERATURE, H4 heater temperature, celsius,
+SYM5155 h4HeaterR: H4_HEATER_RESISTANCE, H4 heater resistance, ohm,
+SYM5156 h4HeaterI: H4_HEATER_CURRENT, H4 heater current, ampere,
+SYM5157 h4HeaterCalib: H4_HEATER_CALIBRATION, H4 heater calibration, ,
+
+SYM5158 h4PcbThermR: H4_PCB_THERMISTOR_R, H4 PCB thermistor resistance, ohm,
+SYM5159 h4PcbTemp: H4_PCB_TEMPERATURE, H4 PCB temperature, celsius,
+
+SYM5160 h4ChipTemp: H4_CHIP_TEMPERATURE, H4 PCB temperature, celsius,
+SYM5161 h4ChipTempAdc: H4_CHIP_TEMPERATURE_ADC, H4 chip temperature raw value, adc,
+
+SYM5162 h4PcbThermAdc: H4_PCB_THERMISTOR_ADC, H4 PCB thermistor raw value, adc,
+
+SYM5163 h4ReadSamples: H4_READ_SAMPLES, H4 read previous samples, ,
+
+SYM5164 h4Osr: H4_OVERSAMPLING_RATE, H4 oversampling rate, , How many ADC samples to average together as one temperature reading
+
+SYM5165 h4AdcCalOffset: H4_ADC_CAL_OFFSET, H4 ADC offset calibration, , Calibration of the zero volt ADC value
+
+SYM5166 h4AdcCalGain: H4_ADC_CAL_GAIN, H4 ADC gain calibration, , Calibration of the short-circuit level of the ADC before correcting for offset error
+
+SYM5167 h4ROffset: H4_RESISTANCE_OFFSET, H4 resistance offset calibration, ohm, Calibration of the remaining resistance value when the thermistor is short-circuited
+
+SYM5168 h4AdcCalOffset2: H4_ADC_CAL_OFFSET2, H4 ADC offset calibration 2, , Calibration of the zero volt ADC value
+
+SYM5169 h4AdcAvddRatio: H4_ADC_AVDD_RATIO, H4 ADC ratio AVdd / VRef, , Diagnose the relation between the two voltage domains of H4
+
+SYM5170 h4HeaterHAdc: H4_HEATER_HIGH_ADC, H4 heater high ADC, ,
+SYM5171 h4HeaterLAdc: H4_HEATER_LOW_ADC, H4 heater low ADC, ,
+
+SYM5172 h4HeatingFraction: H4_HEATING_FRACTION, H4 heating fraction, , Sets the heating voltage to a fraction of full 3.3 V power where 1.0 is full power and 0 is no heating.
+
+SYM5173 h4Running: H4_RUNNING, H4 running, bool, If the devices tries to initialize H4 and sample at the configured rate
+
+SYM5174 h4HeatingU: H4_HEATING_U, H4 heating voltage, volt, The measured voltage being used to run current through the heater and the shunt resistor
+
+REF78 SSP_LIST_OF_5_FLOAT: TypedListFixedSize(5, Float)
+
+REF79 SSP_UINT32_AND_UINT16FIX100 Uint32AndUint16Fix1000: Tuple(Uint32, Uint16Fix100)
+REF80 SSP_LIST_OF_UINT32_AND_UINT16FIX100: TypedList(Uint32AndUint16Fix1000)
+
+#REF81 SSP_INT16_FIX100 Int16Fix100: Fixpoint(1, 16, 2)  #Already in required.txt
+REF82 SSP_FLOAT_AND_INT16FIX100 FloatAndInt16Fix100: Tuple(Float, Int16Fix100)
+REF83 SSP_LIST_OF_FLOAT_AND_INT16FIX100: TypedList(FloatAndInt16Fix100)
+
+REF84 SSP_LIST_OF_INT32: TypedList(Int32)
+
+# Coding the output voltage ratio of DAC MCP47A1T.
+# Max code 64 = value 1.0 (output the full voltage)
+# This gives code 256 = value 4.0 (out of range of MCP47A1T)
+# This gives code 255 = value 3.984375
+REF95 SSP_GSCHEMA_SCALE8BIT4 Scale8Bit4: Scaled(8, 0, 3.984375, 0)

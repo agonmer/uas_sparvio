@@ -1,0 +1,25 @@
+# ssp.txt: Introspection in the SSP protocol and functionality
+
+scope sym=460-499
+
+SYM460 idToLinkIx: ID_TO_LINK_IX, ID to link index, , Get the local link index for routing towards a particular object ID
+
+SYM461 sspI2cMasterTx: SSP_I2C_MASTER_TX, SSP I2C Master transmit, ,
+SYM462 sspI2cMasterRx: SSP_I2C_MASTER_RX, SSP I2C Master receive, ,
+
+SYM463 sspLinkEvt event: LINK_EVENT, SSP link event, ,
+
+SYM464 sspLinkProbeOnce: SSP_LINK_PROBE_ONCE, SSP probe a link for a neighbor once, ,
+
+SYM465 fewestFreeBlocks: SSP_FEWEST_FREE_BLOCKS, The least numbers of free memory pool blocks that have occurred, ,
+
+#SYMx basePriority
+
+#SYMx priority: The importance of preserving the existing network when this component is joined with another network
+
+SYM192 skh2Check: SKH2_CHECK, , ,
+SYM193 skh2SetPort: SKH2_SET_PORT, , ,
+
+#SYM194 msg: MESSAGE, Message, , A SSP message
+
+REF65 SSP_TYPE_I2C_MASTER_TX_ARGS: Tuple(Uint8, Uint8, Blob)

@@ -1,0 +1,32 @@
+# List of all ontology files, for devices without storage restrictions
+
+include required.txt
+include builtin.txt
+include central.txt
+include sampling.txt
+include temp_rh.txt
+include time.txt
+include hw_control.txt
+include logging.txt
+include barometer.txt
+include senseair_hpp.txt
+include air_sensors.txt
+include device.txt
+include positioning.txt
+include ssp.txt
+include electric.txt
+include liquid_sensors.txt
+include radiosonde.txt
+include bootloader.txt
+include h4.txt
+include third_party_device.txt
+include user.txt
+include alphasense.txt
+
+include unsorted.txt
+
+# For now, uses 'baud' defined in unsorted.txt:
+include radio.txt
+
+# Uses x, y, z defined in unsorted.txt:
+include manufacturers.txt

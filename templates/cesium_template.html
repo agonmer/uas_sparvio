@@ -1,0 +1,850 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Sparvio 3D</title>
+  <!-- Include the CesiumJS JavaScript and CSS files -->
+  <script src="https://cesium.com/downloads/cesiumjs/releases/1.79.1/Build/Cesium/Cesium.js"></script>
+  <link href="https://cesium.com/downloads/cesiumjs/releases/1.79.1/Build/Cesium/Widgets/widgets.css" rel="stylesheet">
+  <link href="static/styles.css" rel="stylesheet">
+</head>
+<body>
+    <div id="settings">
+        
+    
+      
+    <div class="toolbar-left">
+        <table><tr><td>
+              <b>Sparvio  </b>
+              </td><td>
+              <button id="showTemperatureButton" onclick="showTemperature();">Temperature (0)</button>
+              </td><td>
+              <button id="showHumidityButton" onclick="showHumidity();">Humidity (0)</button>
+              </td><td>
+              <button id="showCO2Button" onclick="showCO2();">CO2 (0)</button>
+              </td><td>
+              <button id="showCH4Button" onclick="showCH4();">CH4 (0)</button>
+              </td><td>
+              <button id="showCOButton" onclick="showCO();">CO (0)</button>
+              </td><td>
+              <div id="isConnected"><b>UNCONNECTED</b></div>
+            </td><td>
+        </tr></table>
+      </div>
+      <div class="settings-row">
+          <div>
+              <label><strong>Jump to</strong></label>
+              <button onclick="setViewClick('START')">Start</button>
+              <button onclick="setViewClick('DATA_ABOVE')">Data from above</button>
+              <button onclick="setViewClick('DATA_SIDE')">Data from south</button>
+            </div>
+
+            <div class="tooltip">
+                <label><strong>Set thresholds</strong></label>
+                <label for="min-threshold-input">Min</label>
+                <input id="min-threshold-input" size=1  onfocusout="setThresholdInputFocusOut(this, 'min')" onKeyDown="setThresholdInputKeyDown(this, 'min')"/>
+                <label for="max-threshold-input">Max</label>
+                <input id="max-threshold-input" size=1 onfocusout="setThresholdInputFocusOut(this, 'max')" onKeyDown="setThresholdInputKeyDown(this, 'max')"/>
+                <span id="unit"></span>
+                <span class="tooltiptext">Set the minimum and maximum color scale values for the currently displayed parameter. Values below or above threshold will be capped.</span>
+            </div>
+
+            <div class="tooltip">
+                <label ><strong>Altitude offset (m)</strong><input oninput="setHeightOffsetClick(this)" id="height-offset" type="number" step="0.5"  value="0" /></label>
+                    <span class="tooltiptext">Visual correction for incorrect map ground elevation. Set to positive number to raise the measurement data. This does not affect the data, only the presentation. </span>
+            </div>
+      </div>
+      <div class="settings-row">
+      
+        <div class="settings-box">
+        <form id="camera-update-type">
+            <label for="camera-update-type"><strong>Camera lock</strong></label>
+        <input type="radio" name="camera-update-type" id="NO_AUTO" value="NO_AUTO" onclick="setCameraUpdateTypeClick(this)" checked/>
+        <label for="NO_AUTO">None</label>
+        <div class="tooltip">
+            <input type="radio" disabled name="camera-update-type" id="FOCUS_POINT" value="FOCUS_POINT" onclick="setCameraUpdateTypeClick(this)" checked/>
+            <label for="FOCUS_POINT">Point</label>
+            <span class="tooltiptext">After "Jump to", camera is rotating around a given point instead of moving freely</span>
+        </div>
+        <input type="radio" name="camera-update-type" id="FOLLOW_OBJECT" value="FOLLOW_OBJECT" onclick="setCameraUpdateTypeClick(this)" />
+        <label for="FOLLOW_OBJECT">Follow UAV</label>
+        <input type="radio" name="camera-update-type" id="DATA_BOUNDING_SPHERE" value="DATA_BOUNDING_SPHERE" onclick="setCameraUpdateTypeClick(this)" />
+        <label for="DATA_BOUNDING_SPHERE">All data</label>
+        </form>
+    </div>
+        
+        <div class="settings-box">
+        <form id="marker-size-selection">
+            <label for="marker-size-selection"><strong>Data radius (m)</strong></label>
+            <input type="radio" name="marker-size-selection" id="size_05" value=0.5 onclick="setMarkerSizeClick(this)" checked/>
+            <label for="size_05">0.25</label>
+            <input type="radio" name="marker-size-selection" id="size_1" value=1 onclick="setMarkerSizeClick(this)" />
+            <label for="size_1">0.5</label>
+            <input type="radio" name="marker-size-selection" id="size_3" value=2 onclick="setMarkerSizeClick(this)" />
+            <label for="size_3">1</label>
+            <input type="radio" name="marker-size-selection" id="size_5" value=4 onclick="setMarkerSizeClick(this)" />
+            <label for="size_5">2</label>
+            <input type="radio" name="marker-size-selection" id="size_8" value=10 onclick="setMarkerSizeClick(this)" />
+            <label for="size_8">5</label>
+            </form>
+        </div>
+    </div>
+
+    </div>
+  <div id="cesiumContainer"></div>
+
+
+
+    <!-- <script src="data.js"></script> -->
+  <script>
+    /////////////////////
+    /// CONSTANTS
+
+    const BASIC_MARKER_SIZE = 0.5;  // Remember to change button text
+    const VIEWER_UPDATE_INTERVAL_MS = 2000;
+
+    const CAMERA_UPDATE_TYPE = {
+        NO_AUTO: 0,
+        FOLLOW_OBJECT: 1,
+        DATA_BOUNDING_SPHERE: 2,
+        FOCUS_POINT: 3,
+    }
+
+    const CAMERA_VIEW = {
+        DATA_ABOVE : 0,
+        DATA_SIDE: 1,
+        UAV: 2,
+        START: 3
+    }
+
+    /////////////////////
+    /// VARIABLES
+    let drone = null; // Display a drone at the last data point entered
+    let updateInterval; // If camera display is to be updated at a certain interval, the interval handler is stored here
+    let currentMarkerSize = BASIC_MARKER_SIZE; // Size of markers on the map
+    let heightOffset = 0;
+    let currentDataSource; // The datasource (including metadata) currently displayed on the map. An item in the dataSources object
+    //let allPositions = Array();
+    let allPositionsDegrees = Array();
+    let newDronePosition; // Temporary storage of latest drone position. Used when viewer is rendered to move the drone to a new position
+
+    // Define marker appearance
+    let sampleInfluence = 0.2;  //meters
+    let sampleRadii = new Cesium.Cartesian3(sampleInfluence,
+                                            sampleInfluence,
+                                            sampleInfluence);
+    let cylinderProperties = {
+        length: BASIC_MARKER_SIZE,
+        topRadius: BASIC_MARKER_SIZE,
+        bottomRadius: BASIC_MARKER_SIZE/2,
+    };
+
+
+
+
+    // Your access token can be found at: https://cesium.com/ion/tokens.
+    Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiIyMDc5YTNiMC02ZGQyLTQzMzUtOTJjYy04NGUwZDI0ZDJhNDgiLCJpZCI6NDY0MDQsImlhdCI6MTYxNjEwMTAzMX0.sbth_5wdyRSpXTM1PvaE6qnRng0kIwvc_4NFqC6S7F0';
+    // Initialize the Cesium Viewer in the HTML element with the `cesiumContainer` ID.
+    const viewer = new Cesium.Viewer('cesiumContainer', {
+        shouldAnimate: true,
+        // Saves lots GPU power but animations have extreme stutter
+        requestRenderMode : true,
+        maximumRenderTimeChange :Infinity,
+        terrainProvider: Cesium.createWorldTerrain(),
+        //imageryProvider : new Cesium.OpenStreetMapImageryProvider({
+        //    url : 'https://a.tile.openstreetmap.org/'}),
+        geocoder : false,
+
+        // Disable widgets only useful for replay:
+        animation : false,  //No Animation widget
+        timeline : false,  //No Timeline widget
+    });
+    // Draw primitives even if underground (if GPS altitude is wrong)
+    viewer.scene.globe.depthTestAgainstTerrain = false;
+    // Higher number means higher performance but lower visual quality
+    viewer.scene.globe.maximumScreenSpaceError = 1.33;
+    viewer.scene.globe.showGroundAtmosphere = false;
+    viewer.scene.highDynamicRange = false; 
+    
+
+    
+    
+
+    //////////////////////////////////////////////////////////////////////
+    // DRONE
+
+    
+    
+    function createDrone(lat, lon, alt) {
+        let position = Cesium.Cartesian3.fromDegrees(lon, lat, alt);
+        let heading = Cesium.Math.toRadians(135);
+        let pitch = 0;
+        let roll = 0;
+        let hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
+        let orientation = Cesium.Transforms.headingPitchRollQuaternion(position, hpr);
+        drone = viewer.entities.add({
+            name: "Drone",
+            position: position,
+            orientation: orientation,
+            model: {
+              uri: "static/CesiumDrone.glb",
+              minimumPixelSize: 60,
+              maximumScale: 100,
+            },
+            viewFrom: new Cesium.Cartesian3(0, 40, 30),
+            latlon: [lat, lon, alt]
+        });
+    }
+
+    // Overrides the function of the 'Home' button
+    viewer.homeButton.viewModel.command.beforeExecute.addEventListener(
+        function(e) {
+            e.cancel = true;
+            // flyToDataBoundingSphere(allPositions);
+
+            if (allPositionsDegrees.length > 0) {
+                setView(CAMERA_VIEW.START);
+
+            } else if (drone) {
+                setView(CAMERA_VIEW.UAV)
+            }
+        });
+
+    //////////////////////////////////////////////////////////////////////
+    // HELPER FUNCTIONS
+    
+
+    const getDataBoundingSphere = (data) => {
+        return Cesium.BoundingSphere.fromPoints(data);
+    }
+
+    
+    const flyToDataBoundingSphere = (cameraAngle) => {
+        if (allPositionsDegrees.length > 0) {
+            const positions = degreesArrayToCartesian3Array(allPositionsDegrees);
+            const dataBoundingSphere = getDataBoundingSphere(positions);
+            cameraAngle.pitch = viewer.scene.camera.pitch;
+            cameraAngle.heading = viewer.scene.camera.heading;
+            const heading = cameraAngle.heading;
+            const pitch = cameraAngle.pitch;
+            const range = cameraAngle.range;
+            const offset = {
+                heading, pitch, range
+            };
+            viewer.scene.camera.flyToBoundingSphere(dataBoundingSphere, {offset, duration: 1});
+        }
+    }
+
+
+
+    const setCameraUpdateType = (cameraUpdateType, object) => {
+        viewer.trackedEntity = undefined;
+        if (updateInterval) {
+            clearInterval(updateInterval);
+        }
+        if (cameraUpdateType === CAMERA_UPDATE_TYPE.NO_AUTO) {
+            viewer.camera.lookAtTransform(Cesium.Matrix4.IDENTITY);
+        }
+        else if (cameraUpdateType === CAMERA_UPDATE_TYPE.FOLLOW_OBJECT && object) {
+            viewer.trackedEntity = object;
+        }
+        else if (cameraUpdateType === CAMERA_UPDATE_TYPE.DATA_BOUNDING_SPHERE) {
+            let cameraAngle = {
+                heading : Cesium.Math.toRadians(-45.0),
+                pitch : Cesium.Math.toRadians(-10.0),
+                range : 0,
+            }
+            flyToDataBoundingSphere(cameraAngle)
+            updateInterval = setInterval(() => {flyToDataBoundingSphere(cameraAngle)}, 5000);
+        }
+
+    }
+
+    const setCameraUpdateTypeClick = (el) => {
+        const value = el.value;
+        setCameraUpdateType(CAMERA_UPDATE_TYPE[value], drone)
+    }
+
+    const setViewClick = (value) => {
+        setView(CAMERA_VIEW[value]);
+    }
+
+    const setView = (type) => {
+        document.getElementById("FOCUS_POINT").checked = true;
+        viewer.trackedEntity = undefined;
+        if (updateInterval) {
+            clearInterval(updateInterval);
+        }
+        if (type === CAMERA_VIEW.DATA_SIDE) {
+            if (currentDataSource) {
+                const positions = degreesArrayToCartesian3Array(allPositionsDegrees);
+                const boundingSphere = getDataBoundingSphere(positions) 
+                let cameraAngle = {
+                    heading : Cesium.Math.toRadians(0.0),
+                    pitch : Cesium.Math.toRadians(0.0),
+                    range : 40,
+                }
+                viewer.camera.lookAt(boundingSphere.center, cameraAngle);
+                
+            }
+        } else if (type === CAMERA_VIEW.DATA_ABOVE) {
+            if (currentDataSource) {
+                const positions = degreesArrayToCartesian3Array(allPositionsDegrees);
+                const boundingSphere = getDataBoundingSphere(positions) 
+                let cameraAngle = {
+                    heading : Cesium.Math.toRadians(0.0),
+                    pitch : Cesium.Math.toRadians(-90.0),
+                    range : 60,
+                }
+                viewer.camera.lookAt(boundingSphere.center, cameraAngle);
+
+            }
+        } else if (type === CAMERA_VIEW.START) {
+            if (currentDataSource && currentDataSource.dataSource.entities.values.length > 0) {
+                const pos = currentDataSource.dataSource.entities.values[0].position.getValue();
+
+                let cameraAngle = {
+                    heading : Cesium.Math.toRadians(0.0),
+                    pitch : Cesium.Math.toRadians(0.0),
+                    range : 30,
+                }
+                viewer.camera.lookAt(pos, cameraAngle);
+            } else if (allPositionsDegrees.length > 0) {
+                const {lon, lat, alt} = allPositionsDegrees[0];
+                const pos = Cesium.Cartesian3.fromDegrees(lon, lat, alt + heightOffset);
+
+                let cameraAngle = {
+                    heading : Cesium.Math.toRadians(0.0),
+                    pitch : Cesium.Math.toRadians(0.0),
+                    range : 30,
+                }
+                viewer.camera.lookAt(pos, cameraAngle);
+            }
+    
+        } else if (type === CAMERA_VIEW.UAV) {
+            if (drone) {
+                
+                let cameraAngle = {
+                    heading : Cesium.Math.toRadians(0.0),
+                    pitch : Cesium.Math.toRadians(-90.0),
+                    range : 80,
+                }
+                viewer.camera.lookAt(drone.position.getValue(), cameraAngle);
+            }
+        }
+    }
+
+    
+    const setMarkerSizeClick = (el) => {
+        currentMarkerSize = el.value;
+        setMarkerSize(el.value);
+    }
+
+    
+    const setMarkerSize = (value) => {
+        for (let entity of currentDataSource.dataSource.entities.values) {
+            if (entity.ellipsoid) {
+                sampleInfluence = value;  //meters
+                sampleRadii = new Cesium.Cartesian3(sampleInfluence,
+                                            sampleInfluence,
+                                            sampleInfluence);
+                entity.ellipsoid.radii = sampleRadii;
+            } else if (entity.box) {
+                entity.box.dimensions = new Cesium.Cartesian3(value, value, value);
+            
+            } else if (entity.cylinder) {
+                cylinderProperties = {
+                    length: value,
+                    topRadius: value,
+                    bottomRadius: value / 2,
+                }
+                entity.cylinder.length = cylinderProperties.length;
+                entity.cylinder.topRadius = cylinderProperties.topRadius;
+                entity.cylinder.bottomRadius = cylinderProperties.bottomRadius;
+            } 
+        }
+        currentDataSource.markerSize = value;
+        viewer.scene.requestRender();
+    }
+
+    const degreesArrayToCartesian3Array = (array) => {
+        return array.map((el) => {
+            const {lon, lat, alt} = el;
+            return Cesium.Cartesian3.fromDegrees(lon, lat, alt + heightOffset);
+        })
+    }
+
+    const toDegrees = (cartesian3Pos) => {
+        let pos = Cesium.Cartographic.fromCartesian(cartesian3Pos)
+        return [pos.longitude / Math.PI * 180, pos.latitude / Math.PI * 180]
+    }
+
+    const setHeightOffsetClick = (el) => {
+        const floatValue = parseFloat(el.value);
+        if (isNaN(floatValue)) {
+            if (!el.value === "") {
+                el.value = heightOffset;
+
+            } 
+        } else {
+            setHeightOffset(parseFloat(el.value));
+        }
+    }
+
+    const setHeightOffset = (value) => {
+        heightOffset = value;
+        if (currentDataSource) {
+            currentDataSource.heightOffset = value
+            for (let entity of currentDataSource.dataSource.entities.values) {
+                const [lat, lon, alt] = entity.latlon;
+                entity.position = Cesium.Cartesian3.fromDegrees(lon, lat, alt + value);
+            }
+        }
+        if (drone) {
+            const [lat, lon, alt] = drone.latlon;
+            newDronePosition = Cesium.Cartesian3.fromDegrees(lon, lat, alt + value);
+            drone.position = newDronePosition;
+        }
+        
+        viewer.scene.requestRender();
+    }
+
+    const setThresholdInputFocusOut = (el, type) => {
+        setColorThreshold(el.value, type);
+    }
+
+    const setThresholdInputKeyDown = (el, type) => {
+        if(event.keyCode == 13) {
+            setColorThreshold(el.value, type);
+        }
+    }
+
+    const setColorThreshold = (value, type) => {
+        value = parseFloat(value);
+        if (currentDataSource.colorProperties[type] == value) {
+            return;
+        }
+        currentDataSource.colorProperties[type] = parseFloat(value);
+        updateMarkerColors();
+    }
+
+    const updateMarkerColors = () => {
+        for (let entity of currentDataSource.dataSource.entities.values) {
+            const {colorProperties: {min, max, minColor, maxColor}} = currentDataSource;
+            const color = currentDataSource.valueToColor(entity.value, min, max, minColor, maxColor);
+            if (entity.box) {
+                entity.box.material = color.withAlpha(0.5);
+            
+            } else if (entity.cylinder) {
+                entity.cylinder.material = color.withAlpha(0.5);
+            } 
+        }
+        viewer.scene.requestRender();
+    }
+
+    
+    //////////////////////////////////////////////////////////////////////
+
+
+    const dataSources = {
+        tempEntities : { 
+            dataSource: new Cesium.CustomDataSource("temp"),
+            valueToColor: tempToColor, 
+            button: "showTemperatureButton",
+            properties: { 
+                name: "temp",
+                longName: "Temperature",
+                unit: "C" 
+            },
+            markerSize:BASIC_MARKER_SIZE, 
+            heightOffset: 0,
+            colorProperties: {
+                minColor: Cesium.Color.BLUE,
+                min: -15,
+                max: 30,
+                maxColor: Cesium.Color.RED,
+            }
+            
+            
+        },
+        rhEntities : { 
+            dataSource: new Cesium.CustomDataSource("rh"),
+            valueToColor: valueToColor, 
+            button: "showHumidityButton",
+            properties: { 
+                name: "rh",
+                longName: "Humidity",
+                unit: "%RH" 
+            },
+            markerSize:BASIC_MARKER_SIZE, 
+            heightOffset: 0,
+            colorProperties: {
+                minColor: Cesium.Color.WHITE,
+                min: 20,
+                maxColor: Cesium.Color.BLUE,
+                max: 80,
+            }
+        },
+        co2Entities : { 
+            dataSource: new Cesium.CustomDataSource("co2"),
+            valueToColor: valueToColor, 
+            button: "showCO2Button",
+            properties: { 
+                name: "co2",
+                longName: "CO2",
+                unit: "ppm CO2" 
+            },
+            markerSize:BASIC_MARKER_SIZE, 
+            heightOffset: 0,
+            colorProperties: {
+                minColor: Cesium.Color.WHITE,
+                min: 400,
+                maxColor: Cesium.Color.DARKGREEN,
+                max: 2000,
+            }
+        },
+        ch4Entities : { 
+            heightOffset: 0,
+            dataSource: new Cesium.CustomDataSource("ch4"),
+            valueToColor: valueToColor,
+            button: "showCH4Button",
+            properties: { 
+                name: "ch4",
+                longName: "CH4",
+                unit: "ppm CH4" 
+            },
+            markerSize:BASIC_MARKER_SIZE, 
+            colorProperties: {
+                minColor: Cesium.Color.WHITE,
+                min: 1.75,
+                maxColor: Cesium.Color.BROWN,
+                max: 10,
+            }
+            
+        },
+        coEntities : { 
+            dataSource: new Cesium.CustomDataSource("co"),
+            valueToColor: valueToColor,
+            button: "showCOButton",
+            properties: { 
+                name: "co",
+                longName: "CO",
+                unit: "ppm CO" 
+            },
+            markerSize:BASIC_MARKER_SIZE, 
+            heightOffset: 0,
+            colorProperties: {
+                minColor: Cesium.Color.WHITE,
+                min: 0,
+                maxColor: Cesium.Color.RED,
+                max: 5,
+            }
+        },
+        
+    }
+
+    const initialize = () => {
+        setCameraUpdateType(CAMERA_UPDATE_TYPE.NO_AUTO);
+        setInterval(() => {
+            if (drone && newDronePosition) {
+                drone.position = newDronePosition;
+            }
+            viewer.scene.requestRender();
+        }, VIEWER_UPDATE_INTERVAL_MS)
+
+    }
+
+    const getTextCssColor = (cesiumColor) => {
+        let colors = [cesiumColor.red, cesiumColor.green, cesiumColor.blue];
+        for(let c of colors) {
+            c = c / 255.0;
+            if (c <= 0.03928) {
+                c = c/12.92
+            } else {
+                c = ((c+0.055)/1.055) ** 2.4
+            }
+            
+        }
+        let luminance = 0.2126 * colors[0] + 0.7152 * colors[1] + 0.0722 * colors[2];
+        return luminance > 0.300 ? "#000000" : "#ffffff";
+    }
+
+    /**
+     * Exchange the datasource currently being shown. Old datasource is removed, 
+     * new datasource is added to the viewer.
+     * Corresponding buttons are marked as active or not.
+     */
+    const setCurrentDataSource = (dataSource) => {
+        // currentDataSource is not set in the beginning
+        if (currentDataSource) {
+            let button = document.getElementById(currentDataSource.button);
+            button.classList.remove("button-active");
+            viewer.dataSources.remove(currentDataSource.dataSource);
+        }
+        currentDataSource = dataSource;
+        document.getElementById('min-threshold-input').value = dataSource.colorProperties.min;
+        document.getElementById('min-threshold-input').style.backgroundColor = dataSource.colorProperties.minColor.toCssColorString()
+        document.getElementById('min-threshold-input').style.color = getTextCssColor(dataSource.colorProperties.minColor);
+
+        document.getElementById('max-threshold-input').value = dataSource.colorProperties.max;
+        document.getElementById('max-threshold-input').style.backgroundColor = dataSource.colorProperties.maxColor.toCssColorString();
+        document.getElementById('max-threshold-input').style.color = getTextCssColor(dataSource.colorProperties.maxColor);
+        document.getElementById('unit').innerHTML = dataSource.properties.unit;
+
+        
+        viewer.dataSources.add(dataSource.dataSource);
+        if (currentMarkerSize != currentDataSource.markerSize) {
+            setMarkerSize(currentMarkerSize);
+            
+        }
+
+        if (heightOffset != currentDataSource.heightOffset) {
+            setHeightOffset(heightOffset);
+        }
+
+        button = document.getElementById(currentDataSource.button);
+        button.classList.add("button-active");
+        viewer.scene.requestRender();
+        
+    }
+
+    function showTemperature() {
+        setCurrentDataSource(dataSources.tempEntities)
+        
+    }
+    function showHumidity() {
+        setCurrentDataSource(dataSources.rhEntities)
+    }
+    function showCO2() {
+        setCurrentDataSource(dataSources.co2Entities)
+    }
+    function showCH4() {
+        setCurrentDataSource(dataSources.ch4Entities)
+    }
+
+    function showCO() {
+        setCurrentDataSource(dataSources.coEntities)
+    }
+
+    let radii = new Cesium.Cartesian3(sampleInfluence,
+                                            sampleInfluence,
+                                            sampleInfluence);
+
+
+    async function addData(position, dir, name, dataSource, latlon, value) {
+        // The outcommented code in this function can be used to display cylinders when wind information
+        // is available.
+        let entity;
+        
+        const {colorProperties: {min, max, minColor, maxColor}} = dataSource;
+        const color = dataSource.valueToColor(value, min, max, minColor, maxColor);
+
+        //if (dir == null) dir = 180; // Simulate wind!
+        // if (dir == null) {  // null or undefined
+            
+            entity = {
+                name: name,
+                position: position,
+                box: {
+                    dimensions: new Cesium.Cartesian3(currentMarkerSize, currentMarkerSize, currentMarkerSize),
+                    material: color.withAlpha(0.5),
+                },
+                viewFrom: new Cesium.Cartesian3(0, 40, 30),
+                latlon: latlon,
+                value: value
+            };
+        // } else {
+        //     // Heading is opposite of wind direction. Also, translate
+        //     let heading = Cesium.Math.toRadians(dir - 90);
+        //     let pitch = Cesium.Math.toRadians(90);
+        //     let roll = 0;
+        //     let hpr = new Cesium.HeadingPitchRoll(heading, pitch, roll);
+        //     let orientation = Cesium.Transforms.headingPitchRollQuaternion(position,
+        //                                                                    hpr);
+        //     entity = {
+        //         name: name,
+        //         //parent: spheres,
+        //         position: position,
+        //         orientation: orientation,
+        //         cylinder: {
+        //             length: 0.3,//0.1 * 0.25, //cylinderProperties.length, 
+        //             topRadius: cylinderProperties.topRadius,
+        //             bottomRadius: cylinderProperties.bottomRadius,
+        //             material: color.withAlpha(0.5)
+        //         },
+        //         viewFrom: new Cesium.Cartesian3(0, 40, 30),
+        //         latlon: latlon,
+        //         value: value
+        //     };
+        // };
+        dataSource.dataSource.entities.add(entity);
+
+        return entity;
+    }
+
+    function valueToColor(value, minValue, maxValue, minColor, maxColor) {
+        // Encode a measurement scalar as a color
+        // Linear interpolation between the provided colors
+        if (value < minValue)
+            value = minValue;
+        if (value > maxValue)
+            value = maxValue;
+        let color = new Cesium.Color(0, 0, 0, 0);
+        return Cesium.Color.lerp(minColor, maxColor,
+                                 (value - minValue) /
+                                 (maxValue - minValue),
+                                 color);
+    }
+
+    //////// TEMPERATURE
+    function tempToColor(value, minValue, maxValue, minColor, maxColor) {
+        // Encode a temperature in C as a color
+        if (value < minValue)
+            value = minValue;
+        if (value > maxValue)
+            value = maxValue;
+        let color = new Cesium.Color(0, 0, 0, 0);
+        const midValue = (minValue + maxValue) / 2;
+        if (value < midValue) {
+            return Cesium.Color.lerp(minColor, Cesium.Color.WHITE,
+                                 (value - minValue) /
+                                 (midValue - minValue),
+                                 color);
+        }
+        return Cesium.Color.lerp(Cesium.Color.WHITE, maxColor,
+                                 (value - midValue) /
+                                 (maxValue - midValue),
+                                 color);
+    }
+
+
+
+
+    //////////////////////////////////////////////////////////////////////
+    /// SERVER FUNCTIONALITY
+
+    let wsServerUri = "ws://localhost:8080/ws";
+    function connect() {
+        websocket = new WebSocket(wsServerUri);
+        websocket.onopen = function(evt) { onOpen(evt) };
+        websocket.onclose = function(evt) { onClose(evt) };
+        websocket.onmessage = function(evt) { onMessage(evt) };
+        websocket.onerror = function(evt) { onError(evt) };
+    }
+
+    let isConnected = false;
+
+    function onOpen(evt) {
+        isConnected = true;
+        console.log("Websocket onOpen(): Will subscribe")
+        document.getElementById("isConnected").innerHTML = "Connected";
+        websocket.send('{"a": "sub_cesium"}');
+        // skicka revision och hur många element den känner till
+        // revision är en siffra som servern hittar på (finns i servern)
+    }
+
+    // Will be called every second for as long as (re-)connecting fails
+    function onClose(evt) {
+        if (isConnected) {
+            isConnected = false;
+            console.log("Websocket onClose()")
+            document.getElementById("isConnected").innerHTML = "<b>UNCONNECTED</b>";
+        }
+        setTimeout(function() { connect(); }, 1000);
+    }
+
+    
+    const handleDataPoint = async (dataSourceName, data, pos,dir, latlon) => {
+        const {properties : {name, longName, unit}} = dataSources[dataSourceName];
+        const dataSource = dataSources[dataSourceName];
+        const value = data[name];
+        
+        const descriptor = `${value} ${unit}\n${data["alt"]} m MSL`
+                    
+                    addData(pos, dir, descriptor, dataSource, latlon, value);
+                    document.getElementById(dataSource.button).innerHTML =
+                    `${longName} (${dataSource.dataSource.entities.values.length})`;
+    }
+
+    
+    function onMessage(evt) {
+        //console.log("Websocket message: " + evt.data)
+        let msg = JSON.parse(evt.data)
+        if (msg.hasOwnProperty('sample')) {
+            let data = msg['sample']
+            //console.log("Adding sample")
+            let dir;  //undefined as default
+            if (data.hasOwnProperty('wdir') && data.hasOwnProperty('wspd') &&
+                data['wspd'] > 0.1) {
+                dir = data['wdir'];
+            }
+
+            if (!data["lat"] || !data["lon"] || !data["alt"] || data["lat"] < -90 || data["lat"] > 90 || data["lon"] < -180 || data["lon"] > 180) {
+                return;
+            }
+
+
+            let pos = Cesium.Cartesian3.fromDegrees(data['lon'],
+                                                    data['lat'],
+                                                    data['alt'] + heightOffset);
+
+            allPositionsDegrees.push({lon: data['lon'], lat: data['lat'], alt: data['alt']})
+
+            if (drone == null) {
+                createDrone(data['lat'], data['lon'], data['alt'] + heightOffset)
+            } else if (pos != null) {
+                newDronePosition = pos;
+                drone.latlon = [data["lat"], data["lon"], data["alt"]];
+            }
+
+            // Go through all possible value types and add value to its entity dataSource
+            for (let col in dataSources) {
+                const {properties : {name}} = dataSources[col];
+
+                if (data.hasOwnProperty(name)) {
+                    handleDataPoint(col, data, pos, dir, [data["lat"], data["lon"], data["alt"]]);
+                }
+            }   
+            if (allPositionsDegrees.length === 1) {
+
+                // Dynamically set which datasource to display
+                for (let col in dataSources) {
+                    const {properties : {name}} = dataSources[col];
+
+                    if (data.hasOwnProperty(name)) {
+                        setCurrentDataSource(dataSources[col]);
+                        break;
+                    }
+                }   
+
+                // Set altitude offset based on the first datapoint and the cesium terrain height
+                let terrainSamplePositions = [Cesium.Cartographic.fromCartesian(pos)];
+                const oldHeight = allPositionsDegrees[0].alt
+                    Cesium.when(Cesium.sampleTerrainMostDetailed( viewer.terrainProvider, terrainSamplePositions ), function() {
+
+                        const terrainHeight = terrainSamplePositions[0].height;
+                        const heightdiff = parseFloat((terrainHeight - oldHeight).toFixed(1));
+                        setHeightOffset(heightdiff);
+                        document.getElementById('height-offset').value = heightdiff;
+
+                        setView(CAMERA_VIEW.START);
+
+                }); 
+                }   
+        }
+    }
+
+    function onError(evt) {
+        console.log("Websocket error: " + evt)
+    }
+
+    
+    initialize();
+
+    window.addEventListener("load", connect, false);
+
+
+  </script>
+ </div>
+</body>
+</html>

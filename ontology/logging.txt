@@ -1,0 +1,26 @@
+scope sym=540-569
+
+######################################################################
+# Logging and persistent memory
+
+SYM540 logDo: LOG_DO_LOGGING, Logging state, ,
+SYM541 logGetNumSessions: LOG_GET_NUM_SESSIONS, Get number of logging sessions, ,
+SYM542 logSelectSession: LOG_SELECT_SESSION, Select logging session to read, ,
+SYM543 logReadLine: LOG_READ_LINE, Read log line, ,
+SYM544 logClear: LOG_CLEAR, Clear log, , Clears all logs quickly
+SYM545 logFormat: LOG_FORMAT, Format log, , Clears all logs
+SYM546 logLineCount: LOG_GET_LINE_COUNT, Get log line count, ,
+SYM547 logReadLines: LOG_READ_LINES, Read multiple log lines, ,
+
+SYM548 memRead: MEM_RAW_READ, Read raw log memory, , Read log memory by address on the underlaying storage
+SYM549 memWrite: MEM_RAW_WRITE, Writes raw log memory, , Write directly to the underlaying storage without considering the file system
+SYM550 memErase: MEM_RAW_ERASE, Erase part of the memory, , Sets all data in the memory sectors of the supplied address range to the default value. The sectors erased may encompass more memory than the supplied addresses
+
+SYM551 logAuto: LOG_AUTOMATIC_CONTROL, Automatic log control, , Setting for automatically starting and stopping logging based on conditions
+
+SYM552 memSize: MEM_SIZE, Total raw size of memory, bytes, The size of the persistent memory without deducting overhead used by the file system
+
+# For memRead:
+REF72 SSP_GSCHEMA_UINT32_AND_UINT8: Tuple(Uint32, Uint8)
+
+REF77 SSP_GSCHEMA_LTIME_AND_MSG: Struct{lTime: Uint32Fix1000, msg: MsgBlob}

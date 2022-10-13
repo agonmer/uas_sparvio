@@ -1,0 +1,63 @@
+# Low-level access to hardware features such as GPIO pins, ADC, etc.
+
+scope sym=1300-1399
+
+scope sym=1300-1310
+
+########  SPI  ########
+
+SYM1300 spiInit: SPI_INIT, SPI init, , Initialize raw SPI interface access
+SYM1301 spiRead: SPI_READ, SPI read, , Read raw data over SPI
+
+########  I2C  ########
+
+scope sym=1320-1329
+
+SYM1320 i2cInit: I2C_INIT, I2C init, , Initialize raw I2C interface access
+SYM1321 i2cPullups: I2C_PULLUPS, I2C pullups, , Enable or disable pullups for I2C
+SYM1322 i2cReadReg: I2C_READ_REG, I2C read register, , Read a register over raw I2C interface
+SYM1323 i2cWriteReg: I2C_WRITE_REG, I2C write register, , Write a register over raw I2C interface
+
+SYM1324 i2cRead: I2C_REG, I2C read, , Read over raw I2C interface
+SYM1325 i2cWrite: I2C_WRITE, I2C write, , Write over raw I2C interface
+
+########  GPIO control  ########
+
+scope sym=1330-1349
+
+SYM1330 pinConfig: MCU_PIN_CONFIG, MCU pin configuration, , The current configuration of hardware pins
+SYM1331 setPinConfig: MCU_SET_PIN_CONFIG, Change MCU pin configuration, , Manual control of hardware pin
+
+SYM1332 pinSet: MCU_PIN_SET_DIGITAL, MCU pin set digital output, , Manual control of hardware pin
+
+SYM1333 pinGet: MCU_PIN_GET_DIGITAL, Get value of digital input or output, ,
+
+######## ANALOG IN (ADC)  ########
+
+SYM1334 pinVoltage: MCU_PIN_GET_VOLTAGE, Get voltage level of analog input, volt,
+
+SYM1335 pinV: PIN_VOLTAGES, Pin voltages, volt, Map from pin number to sampled pin voltage
+
+SYM1336 pinVMax: PIN_VOLTAGES_MAX, Max voltages, volt, Map from pin number to highest voltage that can be measured at that pin
+
+SYM1337 pinVoltageSetPoint: MCU_PIN_SET_VOLTAGE_POINT, Calibrate present voltage, , Calibrate voltage measurement on a pin by registering the present true voltage
+
+SYM1338 adcCalib: ADC_CALIBRATE, Calibrate ADC circuit, , Do internal calibration of the ADC circuitry (without external reference)
+
+#SYMx pinSaturationV: , Pin saturation voltage, volt, The highest voltage that can be measured at the pin
+
+########  UART  ########
+
+scope sym=1350-1399
+
+SYM1350 uartInit: UART_INIT, Init UART, , Initializes a UART serial port
+
+
+
+REF50 SSP_GSCHEMA_I2C_WRITE_REG_PARAMS: Tuple(Uint8, Uint8, Blob)
+
+REF58 SSP_GSCHEMA_MAP_UINT8_UINT16_FIX1000: TypedMap(Uint8, Uint16Fix1000)
+
+REF59 SSP_TYPE_UINT8_UINT16_FIX1000: Tuple(Uint8, Uint16Fix1000)
+
+REF62 SSP_GSCHEMA_I2C_WRITE_PARAMS: Tuple(Uint8, Blob)

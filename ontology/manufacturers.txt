@@ -1,0 +1,22 @@
+
+#######################
+# Manufacturer-specific
+
+scope sym=5000-5099
+
+SYM5000 k30Status: K30_STATUS, , , SenseAir K30 CO2 sensor status
+SYM5001 trisonicaCmd: TRISONICA_COMMAND, Trisonica command, , Send command to Anemoment Trisonica sensor
+SYM5002 enableSht2x: ENABLE_SHT2X, Enable SHT2X, , Enable the onboard T and RH sensor SHT21 or SHT25
+
+SYM5003 lsm9ds1SamplingRateHz: LSM9DS1_SAMPLING_RATE_HZ, LSM9DS1 sampling rate, hertz, How often the LSM9DS1 accelerometer/gyro/compass sensor takes a sample
+
+SYM5004 shtTemp: SHT_TEMPERATURE, Temperature from SHT sensor, celcius,
+SYM5005 shtRh: SHT_HUMIDITY, Humidity from SHT sensor, percent, Relative humidity
+
+REF87 SSP_GSCHEMA_SCALE16BIT245 Scale16Bit245: Scaled(16, 1, 0.00747703, 0)
+REF88 SSP_GSCHEMA_SCALE16BIT2 Scale16Bit2: Scaled(16, 1, 0.0000610370, 0)
+REF89 SSP_GSCHEMA_SCALE16BIT4 Scale16Bit4: Scaled(16, 1, 0.000122074, 0)
+
+REF90 SSP_GSCHEMA_XYZ_SCALE16BIT245: Struct{x: Scale16Bit245, y: Scale16Bit245, z: Scale16Bit245}
+REF91 SSP_GSCHEMA_XYZ_SCALE16BIT2: Struct{x: Scale16Bit2, y: Scale16Bit2, z: Scale16Bit2}
+REF92 SSP_GSCHEMA_XYZ_SCALE16BIT4: Struct{x: Scale16Bit4, y: Scale16Bit4, z: Scale16Bit4}

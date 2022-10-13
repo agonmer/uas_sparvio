@@ -1,0 +1,27 @@
+#######################
+# Radio-related symbols
+
+scope sym=1200-1299
+
+SYM1200 mac: MAC, MAC, , Unique address for networking
+SYM1201 net: NET, Network settings, ,
+SYM1202 power_mW: POWER, , mWatt, Power for radio transmission
+SYM1203 power_dBm: POWER_DBM, , dBm, Power for radio transmission
+SYM1204 sid: SESSION_ID, Session ID, , Temporary short radio ID
+SYM1205 doFind: DO_FIND, Do find, , If the radio should search for a network
+SYM1206 rfSnoop: RF_SNOOP, RF snoop, ,
+SYM1207 netId: RADIO_NET_ID, Network ID, , Keeps different systems separated when sharing radio frequency
+SYM1208 freqMhz: FREQUENCY_MHZ, Frequency in MHz, MHz, Radio frequency
+SYM1209 format: FORMAT, Radio comm format, ,
+SYM1210 duty: DUTY_CYCLE, Radio duty cycle, ,
+
+SYM1211 sendReply: SEND_REPLY, Send reply radio message, ,
+SYM1212 radioSetMode: SET_RADIO_MODE, Set the mode of the radio, ,
+SYM1213 radioState: RADIO_STATE, Current state of the radio, ,
+
+SYM1214 radioCrystalCalib: RADIO_CRYSTAL_CALIBRATION, Radio crystal calibration, , A device-dependent value controlling the load capacitance used for the local radio crystal
+
+SYM1215 radioEnabled: RADIO_ENABLED, Enable built-in radio, bool, If the built-in telemetry radio should be used at all
+
+#TODO: network speed is not 'baud' as it uses encoding
+REF48 SSP_GSCHEMA_NETWORK: Struct{netId: Uint8, freqMhz: Uint16Fix100, format: Uint8, baud: Uint8, duty: Uint8}

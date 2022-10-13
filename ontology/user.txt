@@ -1,0 +1,7 @@
+# user.txt: User interaction
+
+scope sym=5200-5269
+
+SYM5200 uiText: UI_TEXT, User text, , Text to display to the user
+
+SYM5201 setPixel: SET_PIXEL, Set pixel, ,

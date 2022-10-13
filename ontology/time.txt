@@ -1,0 +1,25 @@
+# Time, timestamping, synchronization, timing
+#
+# Also see the 'timestamping' section of required.txt for symbols that
+# need short encoding.
+
+scope sym=770-799
+
+SYM770 year: YEAR, Year, , Year in the current century in the Gregorian calendar
+SYM771 month: MONTH, Month, , Month in the Gregorian year using January = 1
+SYM772 day: DAY, Day, , Day in the Gregorian month using first day in the month = 1
+SYM773 utcDate: DATE, Date, , Date in the Gregorian calendar in the UTC timezone.
+
+SYM774 utcSyncSource: UTC_SYNC_SOURCE, UTC synchronization source, , The accuracy of synchronization with global time expressed as the type of synchronization
+
+SYM775 rtcStatus: RTC_STATUS, RTC time fix status, , Whether the real-time clock knows the time
+
+#SYM593 utcSync: UTC_SYNCHRONIZATION, UTC synchronization with internal time, ,
+
+
+# Year 0 = 2000
+# Month 1-12 = jan-dec
+# Day 1-31 = day in month
+REF46 SSP_GSCHEMA_DATE: Struct{year: Uint8, month: Uint8, day: Uint8}
+
+#REF74 SSP_GSCHEMA_UTCSYNC: Struct{lTime: Uint32, utc: Uint32Fix1000}

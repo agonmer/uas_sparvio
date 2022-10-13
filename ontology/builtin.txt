@@ -1,0 +1,11 @@
+# builtin.txt: Definitions that don't need to be explicitly represented
+# (but they can be explicit to help converting to ASCII, etc.)
+
+#Built-in structured types:
+#REFxx SSP_FORMAT_MAP: TypedMap(Any, Any)
+
+# Temporary number!
+REF31 SSP_TYPE_NAME_MAP NameMap: TypedMap(Symbol, Any)
+#REF24 SSP_TYPE_NAME_MAP_FIXEDSIZE SizedNameMap: TypedMap(Symbol, Any)
+
+#REFxx SSP_FORMAT_LIST: TypedList(Any)

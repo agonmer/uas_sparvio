@@ -1,0 +1,761 @@
+%PDF-1.4
+%“Œ‹ž ReportLab Generated PDF document http://www.reportlab.com
+1 0 obj
+<<
+/F1 2 0 R /F2 3 0 R /F3 9 0 R /F4 10 0 R
+>>
+endobj
+2 0 obj
+<<
+/BaseFont /Helvetica /Encoding /WinAnsiEncoding /Name /F1 /Subtype /Type1 /Type /Font
+>>
+endobj
+3 0 obj
+<<
+/BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding /Name /F2 /Subtype /Type1 /Type /Font
+>>
+endobj
+4 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (http://sparv.io/VCP_V1.5.0_Setup_W7_x86_32bits.exe)
+>> /Border [ 0 0 0 ] /Rect [ 202.9471 585.7736 445.8571 597.7736 ] /Subtype /Link /Type /Annot
+>>
+endobj
+5 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (http://sparv.io/VCP_V1.5.0_Setup_W8_x86_32bits.exe)
+>> /Border [ 0 0 0 ] /Rect [ 202.9471 567.7736 445.8571 579.7736 ] /Subtype /Link /Type /Annot
+>>
+endobj
+6 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (http://sparv.io/VCP_V1.5.0_Setup_W7_x64_64bits.exe)
+>> /Border [ 0 0 0 ] /Rect [ 202.9471 549.7736 445.8571 561.7736 ] /Subtype /Link /Type /Annot
+>>
+endobj
+7 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (http://sparv.io/VCP_V1.5.0_Setup_W8_x64_64bits.exe)
+>> /Border [ 0 0 0 ] /Rect [ 202.9471 531.7736 445.8571 543.7736 ] /Subtype /Link /Type /Annot
+>>
+endobj
+8 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://www.python.org/downloads/)
+>> /Border [ 0 0 0 ] /Rect [ 114.3729 462.0236 269.4429 474.0236 ] /Subtype /Link /Type /Annot
+>>
+endobj
+9 0 obj
+<<
+/BaseFont /Helvetica-BoldOblique /Encoding /WinAnsiEncoding /Name /F3 /Subtype /Type1 /Type /Font
+>>
+endobj
+10 0 obj
+<<
+/BaseFont /Courier /Encoding /WinAnsiEncoding /Name /F4 /Subtype /Type1 /Type /Font
+>>
+endobj
+11 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://dl.influxdata.com/influxdb/releases/influxdb-1.7.1_windows_amd64.zip)
+>> /Border [ 0 0 0 ] /Rect [ 132.9329 156.6047 482.3562 168.6047 ] /Subtype /Link /Type /Annot
+>>
+endobj
+12 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://portal.influxdata.com/downloads)
+>> /Border [ 0 0 0 ] /Rect [ 266.3429 144.6047 439.2029 156.6047 ] /Subtype /Link /Type /Annot
+>>
+endobj
+13 0 obj
+<<
+/Annots [ 4 0 R 5 0 R 6 0 R 7 0 R 8 0 R 11 0 R 12 0 R ] /Contents 28 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 27 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+14 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (https://grafana.com/grafana/download?platform=windows)
+>> /Border [ 0 0 0 ] /Rect [ 174.6229 708.0236 430.9208 720.0236 ] /Subtype /Link /Type /Annot
+>>
+endobj
+15 0 obj
+<<
+/A <<
+/S /URI /Type /Action /URI (http://docs.grafana.org/installation/windows/)
+>> /Border [ 0 0 0 ] /Rect [ 121.2629 696.0236 315.2429 708.0236 ] /Subtype /Link /Type /Annot
+>>
+endobj
+16 0 obj
+<<
+/Annots [ 14 0 R 15 0 R ] /Contents 29 0 R /MediaBox [ 0 0 595.2756 841.8898 ] /Parent 27 0 R /Resources <<
+/Font 1 0 R /ProcSet [ /PDF /Text /ImageB /ImageC /ImageI ]
+>> /Rotate 0 
+  /Trans <<
+
+>> /Type /Page
+>>
+endobj
+17 0 obj
+<<
+/Outlines 19 0 R /PageLabels 30 0 R /PageMode /UseNone /Pages 27 0 R /Type /Catalog
+>>
+endobj
+18 0 obj
+<<
+/Author () /CreationDate (D:20210827115726+00'00') /Creator (\(unspecified\)) /Keywords () /ModDate (D:20210827115726+00'00') /Producer (ReportLab PDF Library - www.reportlab.com) 
+  /Subject (\(unspecified\)) /Title () /Trapped /False
+>>
+endobj
+19 0 obj
+<<
+/Count 10 /First 20 0 R /Last 24 0 R /Type /Outlines
+>>
+endobj
+20 0 obj
+<<
+/Count 3 /Dest [ 13 0 R /XYZ 62.69291 753.0236 0 ] /First 21 0 R /Last 22 0 R /Next 24 0 R /Parent 19 0 R 
+  /Title (Sparvio Toolbox Windows installation)
+>>
+endobj
+21 0 obj
+<<
+/Dest [ 13 0 R /XYZ 62.69291 690.0236 0 ] /Next 22 0 R /Parent 20 0 R /Title (STM32 COM port driver)
+>>
+endobj
+22 0 obj
+<<
+/Count 1 /Dest [ 13 0 R /XYZ 62.69291 516.0236 0 ] /First 23 0 R /Last 23 0 R /Parent 20 0 R /Prev 21 0 R 
+  /Title (Python 3)
+>>
+endobj
+23 0 obj
+<<
+/Dest [ 13 0 R /XYZ 62.69291 450.0236 0 ] /Parent 22 0 R /Title (Using pip)
+>>
+endobj
+24 0 obj
+<<
+/Count 2 /Dest [ 13 0 R /XYZ 62.69291 399.0047 0 ] /First 25 0 R /Last 26 0 R /Parent 19 0 R /Prev 20 0 R 
+  /Title (If using Anaconda)
+>>
+endobj
+25 0 obj
+<<
+/Dest [ 13 0 R /XYZ 62.69291 213.6047 0 ] /Next 26 0 R /Parent 24 0 R /Title (Installing InfluxDB)
+>>
+endobj
+26 0 obj
+<<
+/Dest [ 16 0 R /XYZ 62.69291 753.0236 0 ] /Parent 24 0 R /Prev 25 0 R /Title (Installing Grafana)
+>>
+endobj
+27 0 obj
+<<
+/Count 2 /Kids [ 13 0 R 16 0 R ] /Type /Pages
+>>
+endobj
+28 0 obj
+<<
+/Length 7066
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 732.0236 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (Sparvio Toolbox Windows installation) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 702.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL -0.117661 Tw (Unzip the toolbox zip file to a directory of your choice. Some additional software packages may be needed,) Tj T* 0 Tw (as listed below.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 672.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (STM32 COM port driver) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 642.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 14 Tm /F1 10 Tf 12 TL .809431 Tw (This is not needed for most systems so only install it if SA1 is not detected. Compatible with Windows\256) Tj T* 0 Tw (98SE, 2000, XP, Vista\256, 7, and 8.x.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 624.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Download and run the installation of Virtual COM port driver matching your system:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 618.0236 cm
+Q
+q
+1 0 0 1 62.69291 528.0236 cm
+q
+1 1 1 rg
+n 0 90 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 72 469.8898 -18 re f*
+1 1 1 rg
+n 0 54 469.8898 -18 re f*
+.878431 .878431 .878431 rg
+n 0 36 469.8898 -18 re f*
+1 1 1 rg
+n 0 18 469.8898 -18 re f*
+.960784 .960784 .862745 rg
+n 0 90 469.8898 -18 re f*
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 75 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 122.2542 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 44.45711 0 Td (System) Tj T* -44.45711 0 Td ET
+Q
+Q
+q
+1 0 0 1 140.2542 75 cm
+q
+.960784 .960784 .862745 rg
+n 0 0 323.6355 12 re f*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 152.6478 0 Td (Link) Tj T* -152.6478 0 Td ET
+Q
+Q
+0 0 0 rg
+q
+1 0 0 1 6 57 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Windows 7, 32-bit) Tj T* ET
+Q
+Q
+q
+1 0 0 1 140.2542 57 cm
+q
+0 0 .501961 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (http://sparv.io/VCP_V1.5.0_Setup_W7_x86_32bits.exe) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 39 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Windows 8/10, 32-bit) Tj T* ET
+Q
+Q
+q
+1 0 0 1 140.2542 39 cm
+q
+0 0 .501961 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (http://sparv.io/VCP_V1.5.0_Setup_W8_x86_32bits.exe) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 21 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Windows 7, 64-bit) Tj T* ET
+Q
+Q
+q
+1 0 0 1 140.2542 21 cm
+q
+0 0 .501961 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (http://sparv.io/VCP_V1.5.0_Setup_W7_x64_64bits.exe) Tj T* ET
+Q
+Q
+q
+1 0 0 1 6 3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Windows 8/10, 64-bit) Tj T* ET
+Q
+Q
+q
+1 0 0 1 140.2542 3 cm
+q
+0 0 .501961 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (http://sparv.io/VCP_V1.5.0_Setup_W8_x64_64bits.exe) Tj T* ET
+Q
+Q
+q
+1 J
+1 j
+0 0 0 RG
+.25 w
+n 0 72 m 469.8898 72 l S
+n 0 54 m 469.8898 54 l S
+n 0 36 m 469.8898 36 l S
+n 0 18 m 469.8898 18 l S
+n 134.2542 0 m 134.2542 90 l S
+n 0 90 m 469.8898 90 l S
+n 0 0 m 469.8898 0 l S
+n 0 0 m 0 90 l S
+n 469.8898 0 m 469.8898 90 l S
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 528.0236 cm
+Q
+q
+1 0 0 1 62.69291 498.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Python 3) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 480.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Sparvio Toolbox is compatible with Python 3.7 and later.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 462.0236 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Install from ) Tj 0 0 .501961 rg (https://www.python.org/downloads/) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 435.0236 cm
+q
+BT 1 0 0 1 0 2.5 Tm 15 TL /F3 12.5 Tf 0 0 0 rg (Using pip) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 411.0047 cm
+q
+q
+.635673 0 0 .635673 0 0 cm
+q
+1 0 0 1 6.6 10.38269 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 738 24 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F4 10 Tf 12 TL (python -m pip install pyserial influxdb requests flask flask-socketio jedi prompt_toolkit pygments aiohttp aiohttp_jinja2) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 378.0047 cm
+q
+BT 1 0 0 1 0 3.5 Tm 21 TL /F2 17.5 Tf 0 0 0 rg (If using Anaconda) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 360.0047 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Anaconda prefers to use the ) Tj /F4 10 Tf (conda) Tj /F1 10 Tf ( package manager instead of ) Tj /F4 10 Tf (pip) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 302.8047 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 48 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F4 10 Tf 12 TL (conda env create -f environment.yml) Tj T*  T* (conda install -c conda-forge aiohttp-jinja2) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 282.8047 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (To run:) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 225.6047 cm
+q
+q
+1 0 0 1 0 0 cm
+q
+1 0 0 1 6.6 6.6 cm
+q
+.662745 .662745 .662745 RG
+.5 w
+.960784 .960784 .862745 rg
+n -6 -6 468.6898 48 re B*
+Q
+q
+0 0 0 rg
+BT 1 0 0 1 0 26 Tm /F4 10 Tf 12 TL (conda activate ssp) Tj T* (...) Tj T* (conda deactivate) Tj T* ET
+Q
+Q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 195.6047 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Installing InfluxDB) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 177.6047 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Install InfluxDB \(64-bit\):) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 171.6047 cm
+Q
+q
+1 0 0 1 62.69291 171.6047 cm
+Q
+q
+1 0 0 1 62.69291 147.6047 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (1.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 8.163255 Tw 12 TL /F1 10 Tf 0 0 0 rg (Download ) Tj 0 0 .501961 rg (https://dl.influxdata.com/influxdb/releases/influxdb-1.7.1_windows_amd64.zip) Tj 0 0 0 rg ( \(Or the) Tj T* 0 Tw (latest version of InfluxDB, found through ) Tj 0 0 .501961 rg (https://portal.influxdata.com/downloads) Tj 0 0 0 rg (\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 141.6047 cm
+Q
+q
+1 0 0 1 62.69291 117.6047 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (2.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 1.66229 Tw 12 TL /F1 10 Tf 0 0 0 rg (unzip the directory ) Tj /F4 10 Tf (influxdb-x.x.x) Tj /F1 10 Tf ( in the downloaded file where you want the application, for) Tj T* 0 Tw (example inside ) Tj /F4 10 Tf (C:\\Program) Tj ( ) Tj (Files\\) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 111.6047 cm
+Q
+q
+1 0 0 1 62.69291 99.60465 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (3.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Create a Windows shortcut to ) Tj /F4 10 Tf (influxd.exe) Tj /F1 10 Tf (.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 93.60465 cm
+Q
+q
+1 0 0 1 62.69291 81.60465 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (4.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Start ) Tj /F4 10 Tf (influxd.exe) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 81.60465 cm
+Q
+q
+1 0 0 1 56.69291 773.1969 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 110.3349 0 Td (Sparvio Toolbox version 1.4.2 -- \(c\) Sparv Embedded 2021) Tj T* -110.3349 0 Td ET
+Q
+Q
+ 
+endstream
+endobj
+29 0 obj
+<<
+/Length 2583
+>>
+stream
+1 0 0 1 0 0 cm  BT /F1 12 Tf 14.4 TL ET
+q
+1 0 0 1 62.69291 735.0236 cm
+q
+BT 1 0 0 1 0 3 Tm 18 TL /F2 15 Tf 0 0 0 rg (Installing Grafana) Tj T* ET
+Q
+Q
+q
+1 0 0 1 62.69291 723.0236 cm
+Q
+q
+1 0 0 1 62.69291 723.0236 cm
+Q
+q
+1 0 0 1 62.69291 699.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (1.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 1.283953 Tw 12 TL /F1 10 Tf 0 0 0 rg (Download Grafana: ) Tj 0 0 .501961 rg (https://grafana.com/grafana/download?platform=windows) Tj 0 0 0 rg ( \(More installation info) Tj T* 0 Tw (is here: ) Tj 0 0 .501961 rg (http://docs.grafana.org/installation/windows/) Tj 0 0 0 rg (\)) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 693.0236 cm
+Q
+q
+1 0 0 1 62.69291 669.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (2.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm .43284 Tw 12 TL /F1 10 Tf 0 0 0 rg (Unzip the directory ) Tj /F4 10 Tf (grafana-5.x.x) Tj /F1 10 Tf ( in the downloaded file to ) Tj /F4 10 Tf (My) Tj ( ) Tj (Documents) Tj /F1 10 Tf ( -- ) Tj /F2 10 Tf (don't) Tj /F1 10 Tf ( place under) Tj T* 0 Tw /F4 10 Tf (C:\\Program) Tj ( ) Tj (Files) Tj /F1 10 Tf ( as the application would not have the permissions it needs to modify its files.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 663.0236 cm
+Q
+q
+1 0 0 1 62.69291 651.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 -3 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (3.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 2 Tm 12 TL /F1 10 Tf 0 0 0 rg (Create a Windows shortcut to ) Tj /F4 10 Tf (bin\\grafana-server.exe) Tj /F1 10 Tf ( under the grafana directory.) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 645.0236 cm
+Q
+q
+1 0 0 1 62.69291 621.0236 cm
+q
+0 0 0 rg
+BT /F1 10 Tf 12 TL ET
+q
+1 0 0 1 6 9 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 5.66 0 Td (4.) Tj T* -5.66 0 Td ET
+Q
+Q
+q
+1 0 0 1 23 -3 cm
+q
+BT 1 0 0 1 0 14 Tm 2.073307 Tw 12 TL /F1 10 Tf 0 0 0 rg (Run ) Tj /F4 10 Tf (grafana-server.exe) Tj /F1 10 Tf (. If Windows warns about "unrecognized application", choose "More) Tj T* 0 Tw (info" and "Run anyway".) Tj T* ET
+Q
+Q
+q
+Q
+Q
+Q
+q
+1 0 0 1 62.69291 621.0236 cm
+Q
+q
+1 0 0 1 62.69291 603.0236 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL (Next, configure Grafana as detailed in the user manual.) Tj T* ET
+Q
+Q
+q
+1 0 0 1 56.69291 773.1969 cm
+q
+0 0 0 rg
+BT 1 0 0 1 0 2 Tm /F1 10 Tf 12 TL 110.3349 0 Td (Sparvio Toolbox version 1.4.2 -- \(c\) Sparv Embedded 2021) Tj T* -110.3349 0 Td ET
+Q
+Q
+ 
+endstream
+endobj
+30 0 obj
+<<
+/Nums [ 0 31 0 R 1 32 0 R ]
+>>
+endobj
+31 0 obj
+<<
+/S /D /St 1
+>>
+endobj
+32 0 obj
+<<
+/S /D /St 2
+>>
+endobj
+xref
+0 33
+0000000000 65535 f 
+0000000073 00000 n 
+0000000135 00000 n 
+0000000242 00000 n 
+0000000354 00000 n 
+0000000556 00000 n 
+0000000758 00000 n 
+0000000960 00000 n 
+0000001162 00000 n 
+0000001347 00000 n 
+0000001466 00000 n 
+0000001572 00000 n 
+0000001801 00000 n 
+0000001993 00000 n 
+0000002255 00000 n 
+0000002461 00000 n 
+0000002659 00000 n 
+0000002891 00000 n 
+0000002997 00000 n 
+0000003255 00000 n 
+0000003330 00000 n 
+0000003507 00000 n 
+0000003630 00000 n 
+0000003779 00000 n 
+0000003877 00000 n 
+0000004035 00000 n 
+0000004156 00000 n 
+0000004276 00000 n 
+0000004344 00000 n 
+0000011462 00000 n 
+0000014097 00000 n 
+0000014147 00000 n 
+0000014181 00000 n 
+trailer
+<<
+/ID 
+[<7ccbd4bbc73beef30488b09901984048><7ccbd4bbc73beef30488b09901984048>]
+% ReportLab generated PDF document -- digest (http://www.reportlab.com)
+
+/Info 18 0 R
+/Root 17 0 R
+/Size 33
+>>
+startxref
+14215
+%%EOF

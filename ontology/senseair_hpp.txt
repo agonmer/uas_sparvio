@@ -1,0 +1,36 @@
+# SenseAir HPP sensor variables
+
+scope sym=5100-5139
+
+SYM5100 hppErrStatus: HPPERRSTATUS, HPP Error status, , SenseAir HPP error status 1
+SYM5101 hppErrStatus2: HPPERRSTATUS2, HPP Error status 2, , SenseAir HPP error status 2
+SYM5102 hppVolt1: HPPVOLT1, HPP 12V voltage, volt,
+SYM5103 hppVolt2: HPPVOLT2, HPP VBB voltage, volt,
+SYM5104 hppTempDiff0: HPPDIFFTEMP0, HPP LPL emitter temperature, celcius,
+SYM5105 hppTempDiff1: HPPDIFFTEMP1, HPP LPL detector heater temperature, celcius,
+SYM5106 hppTempDiff2: HPPDIFFTEMP2, HPP K95 PCB heater temperature, celcius,
+SYM5107 hppTempDiff3: HPPDIFFTEMP3, HPP Inlet air heater temperature, celcius,
+SYM5108 hppTempDiff4: HPPDIFFTEMP4, HPP LPL emitter heater temperature, celcius,
+SYM5109 hppTempDiff5: HPPDIFFTEMP5, HPP LPL detector temperature, celcius,
+SYM5110 hppTempSe0: HPPSETEMP0, HPP main mirror temperature, celcius,
+SYM5111 hppTempSe1: HPPSETEMP1, HPP Component Block temperature, celcius,
+SYM5112 hppTempSe2: HPPSETEMP2, HPP reserved, celcius,
+SYM5113 hppTempSe3: HPPSETEMP3, HPP reserved, celcius,
+SYM5114 hppTempSe4: HPPSETEMP4, HPP reserved, celcius,
+SYM5115 hppTempSe5: HPPSETEMP5, HPP Inlet air heater temperature, celcius,
+SYM5116 hppTempSe6: HPPSETEMP6, HPP K95 PCB temperature, celcius,
+SYM5117 hppTempSe7: HPPSETEMP7, HPP Inlet air heater temperature, celcius,
+
+SYM5118 k96PgaGain: K96_PGA_GAIN, SenseAir K96 LPL channel HW gain
+SYM5119 k96Frac: K96_FRAC, SenseAir K96 IIR filter pole count for filtered readings
+SYM5120 k96Ntc0Temp: K96_NTC0_TEMPERATURE, SenseAir K96 temperature from NTC 0, celcius
+SYM5121 k96Ntc1Temp: K96_NTC1_TEMPERATURE, SenseAir K96 temperature from NTC 1, celcius
+
+SYM5122 k96Pr10: K96_INTERNAL_PRESSURE, SenseAir K96 internal pressure, pascal
+
+SYM5123 k96IntRh: K96_INTERNAL_RH, SenseAir K96 internal relative humidity, procent
+
+SYM5124 k96IntRhTemp: K96_INTERNAL_RH_TEMPERATURE, SenseAir K96 temperature of internal RH sensor, celcius
+
+#SYM51xx k96LplUflt: K96_LPL_UNFILTERED, SenseAir K96 LPL (long path length detector) unfiltered reading
+#SYM51xx k96LplUfltPC: K96_LPL_UNFILTERED_PR_COMP, SenseAir K96 LPL (long path length detector) unfiltered reading with pressure compensation

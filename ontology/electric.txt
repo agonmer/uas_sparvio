@@ -1,0 +1,7 @@
+scope sym=640-669
+
+SYM640 resistance: , Resistance, ohm, Electrical resistance between two application-defined points
+
+SYM641 shuntResistance: , Shunt resistance, ohm, Electrical resistance used to sense a current
+
+SYM642 snsV: SENSOR_VOLTAGE, Sensor voltage, volt, Unprocessed voltage as measured by a sensor that probably translates the reading to some other unit

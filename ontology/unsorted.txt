@@ -1,0 +1,46 @@
+# unsorted.txt: Not yet arranged in more specific categories
+
+scope sym=10000-10999
+
+#SYMxx name: C define, EN-US long name, unit, EN-US documentation
+
+SYM10004 prDiff: PRESSURE_DIFFERENTIAL, Differential pressure, pascal,
+
+# Symbols with contextual semantics and unit:
+SYM10005 x: X, X, inherit,
+SYM10006 y: Y, Y, inherit,
+SYM10007 z: Z, Z, inherit,
+
+SYM10008 resetDisplay: RESET_DISPLAY, Restart the built-in screen, ,
+
+######################################################################
+#Schemas:
+
+REF47 SSP_GSCHEMA_XYZ: null
+
+REF49 SSP_GSCHEMA_THREE_UINT8: TypedList(3, Uint8)
+
+REF51 SSP_GSCHEMA_SYMBOL_AND_ANY: Tuple(Symbol, Any)
+
+REF53 SSP_GSCHEMA_16_UINT16: TypedList(16, Uint16)
+
+REF54 SSP_GSCHEMA_MAP_UINT16_FLOAT: TypedMap(Uint16, Float)
+REF55 SSP_GSCHEMA_MAP_FLOAT_FLOAT: TypedMap(Float, Float)
+
+REF56 SSP_GSCHEMA_TWO_FLOAT: TypedList(2, Float)
+
+# Used for componentNames
+REF57 SSP_GSCHEMA_MAP_FROM_UINT8_TO_STRING: TypedMap(Uint8, String)
+
+REF69 SSP_GSCHEMA_THREE_FLOAT: TypedList(3, Float)
+
+REF70 SSP_GSCHEMA_UINT32_AND_BLOB: Tuple(Uint32, Blob)
+
+REF71 SSP_GSCHEMA_UINT32_AND_UINT16: Tuple(Uint32, Uint16)
+
+# Used for S2 'execute' (sender and command)
+REF73 SSP_GSCHEMA_UINT8_AND_STRING: Tuple(Uint8, String)
+REF85 SSP_GSCHEMA_UINT16_AND_STRING: Tuple(Uint16, String)
+
+# Used for OPC-N3 particle count histogram
+REF93 SSP_GSCHEMA_24_UINT16: TypedList(24, Uint16)

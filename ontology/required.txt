@@ -1,0 +1,124 @@
+# required.txt: Knowledge that all Sparvio devices need
+#
+# These symbols are important enough to use the range 0-127, requiring
+# only one byte to encode. Since everyone is assumed to know the
+# definitions, the ASCII names don't need to be stored except for
+# device able to print to ASCII.
+
+include builtin.txt
+
+scope sym=1-127, ref=32-127
+
+########  Technical  ########
+
+#SYM0 INVALID: INVALID, Invalid symbol, , Special meaning: Not a valid symbol
+SYM1 ASCII: ASCII, , , Special meaning: Symbol given as ASCII
+SYM3 NULL: NULL, No value or unknown value, , Only used when a symbol is expected as value but a value isn't available
+
+########  Basic object properties  ########
+
+SYM4 id: ID, Object ID, , Sparvio object or component id
+
+SYM5 name: NAME, Object name, , ASCII name assigned to an object
+
+SYM6 serNo: SERIAL_NUMBER, Device serial number, , Unique serial number of a device
+
+SYM7 class: CLASS, Object class, , A reference to the registry entry for the class of the component **
+#SYMx className: CLASS_NAME, Class name, , **
+SYM8 app: APPLICATION_ID, Application, , What application is running on the device
+
+########  Basic object contents  ########
+
+SYM9 vars: VARIABLES, Variables, , Variables available for the object
+SYM10 funcs: FUNCTIONS, Functions, , Available functions
+SYM11 events: EVENTS, Event types, , What event types the component can emit
+SYM12 funcSigs: FUNCTION_SIGNATURES, Function signatures, , Available functions along with their argument type and return type
+
+#Not in central.txt since ssp_system.c uses it:
+SYM13 components: COMPONENTS, Components, , List of all components in system (known by this component?)
+SYM14 parent: PARENT, Parent component, , The neighbor component on the path to the root
+SYM15 neig: NEIGHBOR_COMPONENTS, Neighbor components, , List of id's for the direct neighbors (including parent)
+
+########  Basic object control  ########
+
+SYM16 autoSubs: AUTO_SUBSCRIPTIONS, Automatic subscriptions, , Variables and events will be sent to these subscribers without receiving explicit subscription requests
+
+
+########  Timestamping  ########
+#local ticks  -- high-resolution time in an arbitrary unit only valid for each device
+#system ticks -- arbitrary unit to synchronize between multiple devices
+#trigger offset -- number of local ticks offset from a received trigger pulse
+#local understanding of unix time (seconds)
+#local understanding of UTC time (seconds -- since 2000-01-01 UTC 00:00?)
+#local understanding of GPS time (seconds) -- this is off from UTC by about 14 seconds
+
+#SYMx offsetSec: OFFSET_SEC, Time offset in seconds, sec, Second-resolution offset relative some point in time (probably the system start time). Can be used with FIXPOINT type to give millisec or any other resolution
+#SYMx offsetMs: OFFSET_MS, Time offset in milliseconds, msec, Milliseconds relative to some point in time (probably 20 bits but can be stored with more)
+
+SYM17 utc metadata: UTC_TIME, UTC time, sec, Seconds after UTC midnight
+
+SYM25 lTime metadata: LOCAL_TIME, Local time, , Low-resolution time counting for the individual MCU
+
+SYM28 trigLTime metadata: TRIG_LOCAL_TIME, Trigger timestamp, , The timestamp in localTime of the most recent SSP trigger rising edge
+
+########  Event types  ########
+SYM18 debugEvt event: DEBUG_EVENT, Debug event, , Text emitted from sspDebug_printf()
+SYM19 traceEvt event: TRACE_EVENT, Trace, , Information for tracing the logical path of the application
+SYM20 errorEvt event: ERROR_EVENT, Error event, , Text emitted from sspError_printf()
+SYM21 serTxt event: SERIAL_INPUT, Serial input, , Serial input from external source (such as a connected GPS or other sensor)
+#used by ssp_lib:
+SYM23 hwEvt event: HARDWARE_EVENT, Low-level hardware event, ,
+
+SYM24 ping: PING, SSP network ping, , Ping function to verify the SSP network hasn't changed
+
+SYM26 subDef: SUBSCRIBE_DEFAULTS, Subscribe to all default variables, , Subscribe to all default variables and configuration
+
+# All message types?
+SYM27 msg: MESSAGE, Message, , A SSP message
+# msgToBoot, msgFromBoot, msgCinfo, msgNewId, msgRep, msgEvt, msgGet, msgGetIx, msgSet, (msgSetIx, msgCreate, msgDel), msgCall, msgReply, msgSub, msgUnsub, msgCompound
+
+# 'result'? "res"
+
+######################################################################
+# Schemas
+
+REF32 SSP_TYPE_UINT16_FIX10 Uint16Fix10: Fixpoint(0, 16, 1)
+REF33 SSP_TYPE_UINT16_FIX100 Uint16Fix100: Fixpoint(0, 16, 2)
+REF34 SSP_TYPE_UINT16_FIX1000 Uint16Fix1000: Fixpoint(0, 16, 3)
+REF35 SSP_TYPE_INT16_FIX10 Int16Fix10: Fixpoint(1, 16, 1)
+REF36 SSP_TYPE_INT16_FIX100 Int16Fix100: Fixpoint(1, 16, 2)
+REF37 SSP_TYPE_INT16_FIX1000 Int16Fix1000: Fixpoint(1, 16, 3)
+REF38 SSP_TYPE_UINT32_FIX1000 Uint32Fix1000: Fixpoint(0, 32, 3)
+REF39 SSP_TYPE_INT32_FIX10 Int32Fix10: Fixpoint(1, 32, 1)
+REF40 SSP_TYPE_GPS Int32Fix1e6: Fixpoint(1, 32, 6)
+
+# The first number is actually a REF, but declaring it as such
+# would make users try to dereference it(?)
+REF41 SSP_GSCHEMA_DEFINITION SchemaDef: Tuple(Uint8, Schema)
+
+REF42 SSP_GSCHEMA_LIST_OF_UINT8: TypedList(Uint8)
+REF43 SSP_GSCHEMA_LIST_OF_SYMBOLS SymbolList: TypedList(Symbol)
+
+REF44 SSP_GSCHEMA_TWO_UINT8: TypedList(2, Uint8)
+REF45 SSP_GSCHEMA_TWO_UINT32: TypedList(2, Uint32)
+
+REF60 SSP_GSCHEMA_MAP_UINT8_TO_LIST_OF_SYMBOL: TypedMap(Uint8, SymbolList)
+
+REF61 SSP_TYPE_INT32_FIX1000 Int32Fix1000: Fixpoint(1, 32, 3)
+
+REF63 SSP_TYPE_INT32_FIX10000 Int32Fix10000: Fixpoint(1, 32, 4)
+REF64 SSP_TYPE_UINT32_FIX10000 Uint32Fix10000: Fixpoint(0, 32, 4)
+
+# A function signature is an argument type and a return type
+REF66 SSP_TYPE_FUNCTION_SIGNATURE FuncSig: Tuple(Ref, Ref)
+
+REF67 SSP_TYPE_LIST_OF_FUNCTION_SIGNATURES FuncSigList: TypedMap(Symbol, FuncSig)
+
+# Will be changed to VARUINT when adding support for internal objects
+REF75 SSP_TYPE_OBJECT_ID Oid: Uint8
+
+# Used for logging
+# TODO: Change to the actual message contents. See 'messages.txt' for sketch.
+REF76 SSP_GSCHEMA_MESSAGE MsgBlob: Blob
+
+REF86 SSP_GSCHEMA_MAP_OID_TO_ANY OidMap: TypedMap(Oid, Any)

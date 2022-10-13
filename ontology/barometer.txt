@@ -1,0 +1,15 @@
+scope sym=890-899
+
+SYM890 pr: PRESSURE, Pressure, pascal, Absolute pressure
+SYM891 prCalOf: PRESSURE_CALIBRATION_OFFSET, Pressure calibration offset, pascal, Constant offset added to raw pressure measurement
+#Pressure calibration factor
+
+SYM892 prCalRef: PRESSURE_CALIBRATION_REFERENCE, Pressure calibration reference, pascal, Set this value to the current correct pressure to calibrate subsequent pressure measurements
+
+SYM893 baroTemp: BAROMETER_TEMPERATURE, Barometer temperature, celcius, Temperature reported by the barometer IC
+
+
+SYM894 refPr: REFERENCE_PRESSURE, Reference pressure, pascal, Reference pressure/altitude for converting other pressure/altitude pairs
+SYM895 refAlt: REFERENCE_ALTITUDE, Reference altitude, meter, Reference pressure/altitude for converting other pressure/altitude pairs. MSL
+
+SYM896 prUnfiltered: PRESSURE_UNFILTERED, Unfiltered pressure, pascal, Absolute pressure before low-pass filtering

@@ -1,0 +1,7 @@
+
+######################################################################
+# To be modelled:
+
+# result_t enum values
+
+# logger status enum values from skh1/filesys.h

@@ -1,0 +1,28 @@
+# General control of measuring
+
+scope sym=500-539
+
+###################
+# General sampling
+
+SYM500 snsState: SENSOR_STATE, Sensor state, sensorState, Whether a sensor is ready to produce valid data. Values are currently defined in ssp_component.h.
+SYM501 snsErr: SENSING_ERROR, Sensing error, , Error code indicating why a measurement value is missing (device-specific values?)
+SYM502 defParams: DEFAULT_PARAMETERS, Default parameters, , Also part of the class metadata
+SYM503 samplingInterval: SAMPLING_INTERVAL, Sampling interval, msec, How often sampling should be performed
+SYM504 trig: TRIGGER_MEASUREMENT, Trigger measurement, , In triggered mode, trigger the measurement of active parameters
+#SYMx enableSensor: ENABLE_SENSOR, Enable sensor, , If the sensor should be ready for sampling, or in powersaving mode - TODO: Change to "desiredState" **
+SYM505 calibMetadata: CALIBRATION_METADATA, Calibration metadata, , Information about the most recent calibration
+#SYMx enabled: ENABLED, Enabled, , if the sensor is enabled  - TODO: Change to "state" with values from enum disabled, starting, voltage error, ... **
+
+
+####################
+## General calibration
+
+SYM506 calibSetZero: , Set calibration zero point, , Calibrate the present condition as measuring zero
+
+SYM507 resistanceAtZero: , Sensor resistance at zero point, , The resistance measured
+
+SYM508 configParams: CONFIG_PARAMETERS, Configuration parameters, , The variables that hold calibration, metadata and configuration data
+
+# Enum ssp_samplingMode_t
+SYM509 samplingMode: SAMPLING_MODE, Sampling mode, , How sampling is requested to behave

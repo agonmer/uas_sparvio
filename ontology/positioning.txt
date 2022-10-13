@@ -1,0 +1,48 @@
+# Positioning
+
+scope sym=570-639
+
+SYM570 lat: LATITUDE, Latitude, , Latitude as degrees in WGS-84 datum (with decimals)
+SYM571 lon: LONGITUDE, Longitude, , Longitude as degrees in WGS-84 datum (with decimals)
+SYM572 pos: POSITION, GNSS position, , Global position
+SYM573 alt: ALTITUDE, Altitude, meter, Geopotential altitude above mean sea level (MSL)
+SYM574 sats: GPS_SATELLITES, GPS Satellites, , Number of satellites used for fix
+SYM575 hdop: GPS_HDOP, GPS HDOP, meter, Horizontal Dilution Of Precision
+SYM576 dir: COURSE, Course, angleDeg, Course -- travelling towards this direction with 'spd' speed. This can differ from heading. 0 = moving towards N, 90 = towards E
+SYM577 spd: SPEED, Speed, meterPerSec, Speed of the vehicle relative to ground
+SYM578 externalGnss: EXTERNAL_GNSS, External GNSS receiver, bool, Whether to use an external GPS instead of an internal one
+
+SYM579 orQuaW: ORIENTATION_QUATERNION_W, Orientation quaternion W, , Conversion from global to local frame. Component also known as 'A' or real part.
+SYM580 orQuaX: ORIENTATION_QUATERNION_X, Orientation quaternion X, , Conversion from global to local frame. Component also known as 'B'.
+SYM581 orQuaY: ORIENTATION_QUATERNION_Y, Orientation quaternion Y, , Conversion from global to local frame. Component also known as 'C'.
+SYM582 orQuaZ: ORIENTATION_QUATERNION_Z, Orientation quaternion z, , Conversion from global to local frame. Component also known as 'D'.
+
+SYM583 roll: ROLL, Roll angle, angleDeg, "Bank". Side-wise angle. Assumes the sensor is aligned with the body. Compared to global frame.
+SYM584 pitch: PITCH, Pitch angle, angleDeg, "Attack angle". Assumes the sensor is aligned with the body. Compared to global frame.
+
+SYM585 heading: HEADING, Heading, angleDeg, The direction the craft is facing. Same as yaw. Degree between 0 and 360. If the craft is drifting this can be different from the course the craft is travelling in practice.
+
+# Used to determine if the fix is good enough to launch a radiosonde
+SYM586 gnssGoodFix: GNSS_GOOD_FIX, Good GPS fix, ,
+
+SYM587 gnssEnabled: GNSS_ENABLED, If GPS has power and the device accepts data from it, bool,
+
+SYM588 mag: MAGNETIC_FIELD_STRENGTH, Magnetic field strength, gauss,
+SYM589 acc: ACCELERATION, Acceleration, g,
+SYM590 angVel: ANGULAR_VELOCITY, angular velocity, degreesPerSecond,
+
+# Timestamp for last received NMEA message. Also non-fix messages count.
+SYM591 gnssLastDataTs: GNSS_LAST_DATA_TIMESTAMP, Time of most recent GNSS data, ticks,
+
+SYM592 gnssCrcErrors: GNSS_CRC_ERRORS, Number of data frames from the GNSS receiver that have been discarded, ,
+
+SYM594 gnssCmd: GNSS_COMMAND, Send command to the GNSS module, ,
+
+SYM595 gnssTtff: GNSS_TIME_TO_FIRST_FIX, Time To First Fix for GNSS, seconds, The time from GPS power-up to first position fix
+
+SYM596 gnssSignals: GNSS_SIGNALS, GNSS SNR, dB, Signal-to-noise ratio for each tracked satellite
+
+SYM597 compassCalibrate: COMPASS_CALIBRATE, Calibrate compass, ,
+
+# Used by gnssSignals
+REF94 SSP_GSCHEMA_MAP_UINT8_UINT8: TypedMap(Uint8, Uint8)

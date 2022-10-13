@@ -1,0 +1,22 @@
+# Specific to radiosondes
+
+scope sym=1100-1199
+
+SYM1100 md: MODE, Mode, , Phase for the system
+SYM1101 gs: GROUNDSTATION, Groundstation ready, , If the ground station is ready for system launch
+
+SYM1102 burn: BURN, Burn, , Activate hot-wire
+
+SYM1103 relPr: RELEASE_PRESSURE, Release pressure, Pascal, The pressure level where the balloon will be automatically detached
+
+SYM1104 burnTest: BURN_TEST, Burn test, , Check if the hot-wire activation works without cutting the thread
+
+SYM1105 relAlt: RELEASE_ALTITUDE, Release altitude, meter_AGL, The altitude AGL where the balloon will be automatically detached
+
+SYM1106 landedBehavior: LANDED_BEHAVIOR, Behavior after landing, , If the device should be silent after landing
+
+SYM1107 ledTest: LED_TEST, LED test, , Check if the power LED works
+
+SYM1108 burnShuntR: BURN_SHUNT_RESISTANCE, Hot-wire shunt resistor value, ohm, The resistance of the shunt used to measure current for the hot wire
+
+SYM1109 role: RADIOSONDE_ROLE, Device role, , Controls the behavior of the device

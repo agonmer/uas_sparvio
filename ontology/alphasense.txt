@@ -1,0 +1,29 @@
+# Symbols specific for Alphasense products
+
+scope sym=5270-5399
+
+SYM5270 opc_MToF: OPC_MTOF, Average time of flight, microsec1_3, The average amount of time that particles sized in the stated bin took to cross the OPS’s laser beam. Each value is in 1/3 us. I.e. a value of 10 would represent 3.33us.
+
+SYM5271 opc_binBoundaries: OPC_BIN_BOUNDARIES, Bin boundaries, , The upper limit of particle sizes to sort into each bin
+
+SYM5272 opc_binVolumes: OPC_BIN_VOLUMES, Bin volumes, micrometer3, The volume ascribed to each particle in that bin in firmware
+
+SYM5273 opc_binDensities: OPC_BIN_DENSITIES, Bin densities, gram_per_ml, The density ascribed to each particle in that bin. The default setting is 1.65 g/ml for all bins.
+
+SYM5274 opc_binWeightings: OPC_BIN_WEIGHTINGS, Bin weightings, , Correction for size dependent sampling efficiency
+
+SYM5275 opc_gsc: OPC_GSC, Gain scaling coefficient (GSC), , A global factor to normalise between units. Normally 1.0.
+
+SYM5276 opc_sfr: OPC_SFR, Sample flow rate, ml_per_second,
+
+SYM5277 opc_laserDac: OPC_LASER_DAC, Laser digital pot setting, , A parameter to determine laser beam power
+
+SYM5278 opc_fanDac: OPC_FAN_DAC, Fan digital pot setting, , A parameter to determine fan speed
+
+SYM5279 opc_tofToSfrFactor: OPC_TOF_TO_SFR_FACTOR, ToF to SFT factor, , Time of Flight to Sample Flow Rate conversion factor
+
+#REF96 SSP_GSCHEMA_16_UINT16: TypedListFixedSize(16, Uint16)
+
+REF97 SSP_GSCHEMA_4_UINT8: TypedListFixedSize(4, Uint8)
+
+REF98 SSP_GSCHEMA_16_FLOAT: TypedListFixedSize(16, Float)

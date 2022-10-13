@@ -1,0 +1,13 @@
+
+scope sym=400-429
+
+SYM400 componentCount: COMPONENT_COUNT, Component count, , Totalt components in system (known by this component?)
+
+SYM401 lookupId: LOOKUP_COMPONENT_ID, Lookup component ID, , Offered by central to translate various formats to the ID of a corresponding active component
+
+SYM402 componentNames: COMPONENT_NAMES, Component names, , Map from component ID to component name with all components
+
+SYM403 setComponentName: SET_COMPONENT_NAME, Set component name, , Changes the name of any component in the network so the central remembers the new name
+
+#Change Uint8 to Id or Varuint when implemented
+REF68 SSP_TYPE_ID_AND_STRING: Tuple(Uint8, String)
