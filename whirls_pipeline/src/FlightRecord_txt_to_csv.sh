@@ -31,4 +31,4 @@ EOF
 	exit 1
 fi
 
-exec /home/lorenzo/uas_sparvio/whirls_pipeline/src/dji-log --api-key "$UAS_SPARVIO_API_KEY" --csv "$OUTPUT_FILE" "$INPUT_FILE"
+exec /home/lorenzo/uas_sparvio/whirls_pipeline/src/dji-log --api-key "$UAS_SPARVIO_API_KEY" --csv "$OUTPUT_FILE" "$INPUT_FILE" > /dev/null 2>&1
