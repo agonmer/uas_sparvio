@@ -1,0 +1,8 @@
+# Ago, 2025 November 6th
+
+Create a new environment
+
+conda create -n sparvio
+
+Install some relevant packages
+

@@ -1,0 +1,64 @@
+# Ago, 2025 November 6th
+
+Create a new environment
+
+conda create -n sparvio
+
+Install some relevant packages
+
+conda install -c conda-forge -n sparvio pyserial jupyter cartopy pandas scipy numpy
+
+conda install -c conda-forge -n sparvio aiohttp-jinja2
+
+conda activate sparvio
+
+Then I follow the install_linux.pdf
+
+sudo apt-get install -y python-setuptools
+sudo adduser <user> dialout
+sudo apt remove modemmanager
+
+python setup.py install
+
+But this last line does not work because there is no setup.py script
+
+If I connect the SA1 to the data logger I can do
+
+./read_log.py --ports
+
+to get
+
+/dev/ttyACM0
+
+But then if I try
+
+sudo ./read_log.py --retain --port /dev/ttyACM0:115200bps
+
+I get this message
+
+InfluxDB database manager not installed. Install with: "pip install influxdb"
+0.069 Opened /dev/ttyACM0
+view traceEvt: 'stop acting as central'
+Caught exception: Rejected by component (reason 5 Unknown variable)
+Traceback (most recent call last):
+  File "/home/agostino/Desktop/droni/sparvio_toolbox_1.5.0/sparvio_toolbox/./read_log.py", line 231, in main
+    app = loggerProxy.get("app")
+  File "/home/agostino/Desktop/droni/sparvio_toolbox_1.5.0/sparvio_toolbox/core/remoteobject.py", line 148, in get
+    payload = self._handle_reply(self._send_and_get_reply(msg, timeout=timeout),
+  File "/home/agostino/Desktop/droni/sparvio_toolbox_1.5.0/sparvio_toolbox/core/remoteobject.py", line 127, in _handle_reply
+    raise NackException('Rejected by component (reason %d %s)' %
+core.remoteobject.NackException: Rejected by component (reason 5 Unknown variable)
+None
+Thread SerialDaemon(/dev/ttyACM0) took 253 ms to stop
+
+
+
+
+
+I try with the v1.7.2 toolbox. Using the same environment installed before (sparvio) I can download the data with
+
+conda activate sparvio
+./read_log.py --ports
+sudo ./read_log.py --retain --port /dev/ttyUSB0:115200bps
+
+Note that the data logger is directly connected with the USB cable to the laptop.
