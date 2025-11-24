@@ -21,6 +21,7 @@ export UAS_SPARVIO_API_KEY='your_api_key_here'
 ```
 
 ## Convert Logs (.DAT) to .csv
+To install Java into conda env follow -> https://mycleverai.com/it-questions/how-do-i-install-java-in-a-conda-environment
 
 We use DatCon (https://datfile.net/DatCon/downloads.html), its downloaded in "uas_sparvio/whirls_pipeline/scripts/DatCon/DatCon.4.3.0.jar".
 Run it with "java -jar /path_to_repo/uas_sparvio/whirls_pipeline/scripts/DatCon/DatCon.4.3.0.jar".
