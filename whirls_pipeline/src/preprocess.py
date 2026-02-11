@@ -52,46 +52,57 @@ def PlotFlightRecord(
     sns.set_theme(style="darkgrid")
 
     # Plot trajectory
-    fig,axes=plt.subplots(1,3,figsize=(18,5))
+    fig,axes=plt.subplots(1,4,figsize=(22,5))
     sns.scatterplot(
             data=fr_df,
             x='OSD.longitude',
             y='OSD.latitude',
-            hue='CUSTOM.dateTime_dt',
+            hue='orientation',
             legend=False,
             ax=axes[0],
             edgecolor=None,
             alpha=0.3,
-            palette='viridis',
-        )
+            )
 
     sns.scatterplot(
             data=fr_df,
             x='CUSTOM.dateTime_dt',
             y='OSD.height',
-            hue='CUSTOM.dateTime_dt',
+            hue='orientation',
             legend=False,
             ax=axes[1],
             edgecolor=None,
             alpha=0.3,
-            palette='viridis',    
         )
+    axes[1].set_xlabel('Time (UTC)')
     
     sns.scatterplot(
             data=fr_df,
             x='CUSTOM.dateTime_dt',
             y='OSD.yaw',
-            hue='CUSTOM.dateTime_dt',
+            hue='orientation',
             legend=False,
             ax=axes[2],
             edgecolor=None,
             alpha=0.3,
-            palette='viridis',    
         )
 
-    axes[1].set_xlabel('Time (UTC)')
+
+    sns.scatterplot(
+        data=fr_df,
+        x='tilt_deg',
+        y='GSpeed',
+        hue='orientation',
+        edgecolor=None,
+        ax=axes[3],
+        s=10,
+        alpha=0.7,    
+        )
+
+
     fig.autofmt_xdate(rotation=30, ha='right')
 
-    plt.plot()
+
+    plt.show()
 
     return 
