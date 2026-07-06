@@ -8,8 +8,8 @@ You also need to add "export JAVA_HOME=/path/to/your/env/myenv" to you .bashrc t
 
 ## FlightRecord conversion (dji-log)
 
-To convert FlighRecords (.txt) to .csv use the bash script "uas_sparvio/whirls_pipeline/scripts/FlightRecord_txt_to_csv.sh" with the path to the txt file and the output path for the csv file.
-Or use the corresponding py script:
+To convert FlighRecords (.txt) to .csv use the python script "uas_sparvio/whirls_pipeline/scripts/FlightRecord_txt_to_csv.py" with the path to the txt file and the output path for the csv file.
+Or use the corresponding bash script:
 
 `whirls_pipeline/src/FlightRecord_txt_to_csv.sh`
 
